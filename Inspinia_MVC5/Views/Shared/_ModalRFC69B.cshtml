@@ -1,0 +1,66 @@
+﻿
+<div class="modal inmodal" id="RFCDetail69B" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <i style="color:red;" class="fa fa-exclamation-circle modal-icon"></i>
+                <h4 class="modal-title">Sentencias encontradas</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <i v-if="res69B.RFC.length == 12" style="float:left; font-size:37px; color:gray; margin: 0 5px 0 0" class="fa fa-building"></i>
+                    <i v-if="res69B.RFC.length > 12" style="float:left; font-size:37px; color:gray; margin: 0 5px 0 0" class="fa fa-user"></i>
+                    <strong>{{res69B.RFC}}</strong><br /><small>{{res69B.Nombre}}</small>
+
+                </p>
+                <br />
+                <div style="overflow-x:scroll;">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SITUACIÓN </th>
+                                <th>PUBLICACIÓN PÁGINA NO Y FECHA DE OFICIO GLOBAL DE PRESUNCIÓN</th>
+                                <th>SAT (PRESUNTOS)</th>
+                                <th>NO Y FECHA DE OFICIO GLOBAL DE PRESUNCIÓN</th>
+                                <th>PUBLICACIÓN DOF (PRESUNTOS)</th>
+                                <th>PUBLICACIÓN PÁGINA SAT (DESVIRTUADOS)</th>
+                                <th>NO Y FECHA DE OFICIO GLOBAL QUE DESVIRTUARON</th>
+                                <th>PUBLICACIÓN DOF (DESVIRTUADOS)</th>
+                                <th>NO Y FECHA DE OFICIO GLOBAL DE DEFINITIVOS</th>
+                                <th>PUBLICACIÓN PÁGINA SAT (DEFINITIVOS)</th>
+                                <th>PUBLICACIÓN DOF (DEFINITIVOS)</th>
+                                <th>NO Y FECHA DE OFICIO GLOBAL DE SENTENCIA FAV</th>
+                                <th>PUBLICACIÓN PÁGINA SAT (SENTENCIA FAV)</th>
+                                <th>NO Y FECHA DE OFICIO GLOBAL DE SENTENCIA FAV</th>
+                                <th>PUBLICACIÓN DOF (SENTENCIA FAV)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{res69B.Situacion}}</td>
+                                <td>{{res69B.PubPresuncion}}</td>
+                                <td>{{res69B.SATPresuntos}}</td>
+                                <td>{{res69B.NoFechaOfGlobalPresuncion}}</td>
+                                <td>{{res69B.PubDOFPresuntos}}</td>
+                                <td>{{res69B.PubDesvirtuados}}</td>
+                                <td>{{res69B.NoFechaOfGlobalDesvirtuados}}</td>
+                                <td>{{res69B.PubDOFDesvirtuados}}</td>
+                                <td>{{res69B.NoFechaOfGlobalDefinitivos}}</td>
+                                <td>{{res69B.PubDefinitivos}}</td>
+                                <td>{{res69B.PubDOFDefinitivos}}</td>
+                                <td>{{res69B.NoFechaOfGlobalSentenciaFav}}</td>
+                                <td>{{res69B.PubSentenciaFav}}</td>
+                                <td>{{res69B.NoFechaOfGlobalSentenciaFav2}}</td>
+                                <td>{{res69B.PubDOFSentenciaFav}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

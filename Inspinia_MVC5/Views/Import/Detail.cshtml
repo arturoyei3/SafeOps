@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Búsqueda de RFC";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>	Búsqueda</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Dashboard_2", "Dashboards")">Inicio</a>
+            </li>
+            <li class="active">
+                <strong>	Buscar RFC</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+
+                    <small><i class="fa fa-download"></i> Última Actualización: <strong>16 de Diciembre de 2018</strong></small>
+
+                    <div class="search-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Escribir RFC..." name="search" class="form-control input-lg">
+                            <div class="input-group-btn">
+                                <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <i style="color:red;" class="fa fa-exclamation-circle modal-icon"></i>
+                <h4 class="modal-title">En lista de contribuyentes incumplidos.</h4>
+                <small class="font-bold">Verifica en el listado de abajo los supuestos encontrados.</small>
+            </div>
+            <div class="modal-body">
+
+                <p>
+                    <i style="float:left; font-size:37px; color:gray; margin: 0 5px 0 0" class="fa fa-building"></i>
+                    <strong>A&A040416LQA</strong><br />
+                    <small>ATTORNEYS & ATTORNEYS CORPORATIVO JURIDICO FISCAL SC</small>
+                </p>
+                <br />
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+
+                            <th>#</th>
+                            <th>Supuesto </th>
+                            <th>Primera Publicación </th>
+                            <th>Monto </th>
+                            <th>Publicación </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Condonados</td>
+                            <td>01/10/2016</td>
+                            <td>$ 3,080</td>
+                            <td>01/10/2016</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+$(document).ready(function () {
+
+
+});
+
+function showModal() {
+            alert();
+            $('#modalFollow').modal('toggle');
+}
+    </script>
+}

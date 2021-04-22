@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<main id="appValidate">
+    <div id="fullscreen_bg" class="fullscreen_bg" />
+
+    <div class="passwordBox animated fadeInDown">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="ibox-content">
+                    <h2 class="font-bold">Confirmando correo...</h2>
+                </div>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+</main>
+
+
+@section scripts{
+<environment names="Development,Staging,Production">   
+    <script type="text/javascript">
+        var complete = new Vue({
+            el: '#appValidate',
+            data: function () {
+                return {
+                    userId: null,
+                    alert: false,
+                    error: true,
+                    msg: ''
+                };
+            },
+            mounted: function () {
+                var self = this;
+                self.userId = $_get("REG");
+
+                if (self.userId != null) {
+                    self.CompleteRegistration()
+                }
+                else {
+                    swal("Error", "No se pudo obtener la información completa.", "error");
+                }
+            },
+            methods: {
+                CompleteRegistration: function () {
+                    var self = this;                    
+                    self.$http.post('/Account/ValidateEmail', JSON.stringify({ 'userId': self.userId })).then(function (response) {
+                        switch (response.body.status) {
+                            case 1:
+                                swal("Cuenta verificada.")
+                                    .then((value) => {
+                                        location.href = "/";
+                                    });                                
+                                break;
+                            case 2:
+                                self.alert = true;
+                                self.error = true;
+                                self.msg = response.body.msg;
+                                swal("Error", self.msg, "error")
+                                    .then((value) => {
+                                        location.href = "/";
+                                    });                                                   
+                                break;
+                            default:
+                                console.log(response.body.status);
+                                self.alert = false;
+                                break;
+                        }
+                    }, function () {
+                        console.log('ocurrio un error');                        
+                    });
+                }                
+            }
+        });
+    </script>
+
+</environment >
+}

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SATSR.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SATSR.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="SearchGenericResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Archivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date69B" type="xs:int" />
+      <xs:element minOccurs="0" name="DateUpdated" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Registros" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchGenericResult" nillable="true" type="tns:SearchGenericResult" />
+  <xs:complexType name="Detail69Result">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Supuestos" nillable="true" type="tns:ArrayOfDetail69SupuestoResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detail69Result" nillable="true" type="tns:Detail69Result" />
+  <xs:complexType name="ArrayOfDetail69SupuestoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detail69SupuestoResult" nillable="true" type="tns:Detail69SupuestoResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetail69SupuestoResult" nillable="true" type="tns:ArrayOfDetail69SupuestoResult" />
+  <xs:complexType name="Detail69SupuestoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Monto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PPublicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Publicacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Supuesto" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detail69SupuestoResult" nillable="true" type="tns:Detail69SupuestoResult" />
+  <xs:complexType name="Detail69BResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NoFechaOfGlobalDefinitivos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoFechaOfGlobalDesvirtuados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoFechaOfGlobalPresuncion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoFechaOfGlobalSentenciaFav" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoFechaOfGlobalSentenciaFav2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Num" type="xs:int" />
+      <xs:element minOccurs="0" name="PubDOFDefinitivos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubDOFDesvirtuados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubDOFPresuntos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubDOFSentenciaFav" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubDefinitivos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubDesvirtuados" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubPresuncion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PubSentenciaFav" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SATPresuntos" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Situacion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Detail69BResult" nillable="true" type="tns:Detail69BResult" />
+  <xs:complexType name="ExecResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Res" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExecResult" nillable="true" type="tns:ExecResult" />
+  <xs:complexType name="ArrayOfSearchHistoryResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchHistoryResult" nillable="true" type="tns:SearchHistoryResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchHistoryResult" nillable="true" type="tns:ArrayOfSearchHistoryResult" />
+  <xs:complexType name="SearchHistoryResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="C69" type="xs:int" />
+      <xs:element minOccurs="0" name="C69B" type="xs:int" />
+      <xs:element minOccurs="0" name="Date69B" type="xs:int" />
+      <xs:element minOccurs="0" name="Fecha" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaBusqueda" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Hora" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="S69" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="S69B" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="T69" type="xs:boolean" />
+      <xs:element minOccurs="0" name="T69B" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchHistoryResult" nillable="true" type="tns:SearchHistoryResult" />
+  <xs:complexType name="AccountInfoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LastSearch" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LastUpdate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Res" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Status" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountInfoResult" nillable="true" type="tns:AccountInfoResult" />
+  <xs:complexType name="TypeAccountInfoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentAutSearchs" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentFailProv" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentProv" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentSearchs" type="xs:int" />
+      <xs:element minOccurs="0" name="DayInsert" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxAutSearch" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxSearch" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MonthInsert" type="xs:int" />
+      <xs:element minOccurs="0" name="Res" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RolId" type="xs:int" />
+      <xs:element minOccurs="0" name="RolName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearInsert" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TypeAccountInfoResult" nillable="true" type="tns:TypeAccountInfoResult" />
+  <xs:complexType name="CurrentPeriodResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="InitDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CurrentPeriodResult" nillable="true" type="tns:CurrentPeriodResult" />
+  <xs:complexType name="ValidateResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Res" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ValidateResult" nillable="true" type="tns:ValidateResult" />
+  <xs:complexType name="AccountPersonalInfoResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rol" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RolId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountPersonalInfoResult" nillable="true" type="tns:AccountPersonalInfoResult" />
+  <xs:complexType name="ArrayOfMessageResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MessageResult" nillable="true" type="tns:MessageResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessageResult" nillable="true" type="tns:ArrayOfMessageResult" />
+  <xs:complexType name="MessageResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InsertDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MessageText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MessageResult" nillable="true" type="tns:MessageResult" />
+  <xs:complexType name="ArrayOfDetail69BResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Detail69BResult" nillable="true" type="tns:Detail69BResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDetail69BResult" nillable="true" type="tns:ArrayOfDetail69BResult" />
+  <xs:complexType name="ArrayOfSearchHistorySimpleResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchHistorySimpleResult" nillable="true" type="tns:SearchHistorySimpleResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchHistorySimpleResult" nillable="true" type="tns:ArrayOfSearchHistorySimpleResult" />
+  <xs:complexType name="SearchHistorySimpleResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchHistorySimpleResult" nillable="true" type="tns:SearchHistorySimpleResult" />
+</xs:schema>

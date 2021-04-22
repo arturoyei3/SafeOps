@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YEI3_SATModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'YEI3_SAT.dbo.69' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="69">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NUMERO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'YEI3_SAT.dbo.69_B' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="69_B">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NUMERO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONFIGURATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VALUE" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LINK" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ICON" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PARENT" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="POSITION" Type="varchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USER_FROM" Type="int" />
+          <Property Name="ID_STATUS" Type="int" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="date" Nullable="false" />
+          <Property Name="TITLE" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="MESSAGE" Type="text" Nullable="false" />
+          <Property Name="ICON" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="MESSAGE_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_MESSAGE" Type="int" Nullable="false" />
+          <Property Name="ID_USER_TO" Type="int" Nullable="false" />
+          <Property Name="DELIVERED" Type="bit" Nullable="false" />
+          <Property Name="EMAIL_NOTIFICATION" Type="bit" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="MAX_SEARCH" Type="int" />
+          <Property Name="MAX_AUT" Type="int" />
+        </EntityType>
+        <EntityType Name="ROL_MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ROL" Type="int" Nullable="false" />
+          <Property Name="ID_MENU" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SOURCE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODE" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'YEI3_SAT.dbo.T69' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="T69">
+          <Key>
+            <PropertyRef Name="1" />
+            <PropertyRef Name="2" />
+            <PropertyRef Name="3" />
+            <PropertyRef Name="4" />
+            <PropertyRef Name="5" />
+          </Key>
+          <Property Name="1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="2" Type="text" Nullable="false" />
+          <Property Name="3" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="4" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="5" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="6" Type="varchar" MaxLength="50" />
+          <Property Name="7" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'YEI3_SAT.dbo.T69_B' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="T69_B">
+          <Property Name="1" Type="int" />
+          <Property Name="2" Type="varchar" MaxLength="150" />
+          <Property Name="3" Type="varchar" MaxLength="200" />
+          <Property Name="4" Type="varchar" MaxLength="150" />
+          <Property Name="5" Type="varchar" MaxLength="100" />
+          <Property Name="6" Type="datetime" />
+          <Property Name="7" Type="varchar" MaxLength="100" />
+          <Property Name="8" Type="datetime" />
+          <Property Name="9" Type="varchar" MaxLength="150" />
+          <Property Name="10" Type="varchar" MaxLength="100" />
+          <Property Name="11" Type="varchar" MaxLength="150" />
+          <Property Name="12" Type="varchar" MaxLength="100" />
+          <Property Name="13" Type="datetime" />
+          <Property Name="14" Type="datetime" />
+          <Property Name="15" Type="varchar" MaxLength="100" />
+          <Property Name="16" Type="varchar" MaxLength="100" />
+          <Property Name="17" Type="varchar" MaxLength="100" />
+          <Property Name="18" Type="varchar" MaxLength="100" />
+        </EntityType>-->
+        <EntityType Name="UPDATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_SOURCE_TYPE" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="DATE_UPDATE" Type="date" Nullable="false" />
+          <Property Name="RECORDS" Type="int" Nullable="false" />
+          <Property Name="M" Type="int" Nullable="false" />
+          <Property Name="F" Type="int" Nullable="false" />
+          <Property Name="TABLE_QUERY" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EXEC_TRIGGER" Type="bit" Nullable="false" />
+          <Property Name="EXEC_ALERT" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PASS" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ID_STATUS" Type="int" Nullable="false" />
+          <Property Name="AREA" Type="varchar" MaxLength="100" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="ALIAS" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONAL_MOBILE" Type="varchar" MaxLength="50" />
+          <Property Name="MOBILE" Type="varchar" MaxLength="50" />
+          <Property Name="NNS" Type="int" />
+          <Property Name="CONTRACT_NUM" Type="int" />
+          <Property Name="STREET_TYPE" Type="varchar" MaxLength="50" />
+          <Property Name="STREET_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="EXT_NUM" Type="varchar" MaxLength="50" />
+          <Property Name="INT_NUM" Type="varchar" MaxLength="50" />
+          <Property Name="SUBURB" Type="varchar" MaxLength="100" />
+          <Property Name="LOCATION" Type="varchar" MaxLength="100" />
+          <Property Name="MUNICIPALITY" Type="varchar" MaxLength="100" />
+          <Property Name="STATE" Type="varchar" MaxLength="100" />
+          <Property Name="INSERT_DATE" Type="date" />
+          <Property Name="TIME_INSERT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="USER_ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USER" Type="int" Nullable="false" />
+          <Property Name="ID_ROL" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USER_SEARCH_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_USER" Type="int" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="datetime" Nullable="false" />
+          <Property Name="RFC" Type="varchar" MaxLength="50" />
+          <Property Name="NAME" Type="varchar" MaxLength="250" />
+          <Property Name="69" Type="varchar" MaxLength="250" />
+          <Property Name="69_B" Type="varchar" MaxLength="250" />
+          <Property Name="TYPE_SEARCH" Type="int" />
+          <Property Name="SEARCH_DATE" Type="datetime" />
+          <Property Name="69_C" Type="int" />
+          <Property Name="69_BC" Type="int" />
+          <Property Name="69_B_DATE" Type="datetime" />
+        </EntityType>
+        <Association Name="FK__ROL_MENU__ID_MEN__30F848ED">
+          <End Role="MENU" Type="Self.MENU" Multiplicity="1" />
+          <End Role="ROL_MENU" Type="Self.ROL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_MENU">
+              <PropertyRef Name="ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROL_MENU__ID_ROL__300424B4">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="ROL_MENU" Type="Self.ROL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_MENU">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER_ROL__ID_ROL__2B3F6F97">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USER_ROL" Type="Self.USER_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER_ROL__ID_USE__2A4B4B5E">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER_ROL" Type="Self.USER_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_ROL">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_DETAIL_MESSAGE">
+          <End Role="MESSAGE" Type="Self.MESSAGE" Multiplicity="1" />
+          <End Role="MESSAGE_DETAIL" Type="Self.MESSAGE_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESSAGE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE_DETAIL">
+              <PropertyRef Name="ID_MESSAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_DETAIL_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="MESSAGE_DETAIL" Type="Self.MESSAGE_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE_DETAIL">
+              <PropertyRef Name="ID_USER_TO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_STATUS">
+          <End Role="STATUS" Type="Self.STATUS" Multiplicity="1" />
+          <End Role="MESSAGE" Type="Self.MESSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="MESSAGE" Type="Self.MESSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE">
+              <PropertyRef Name="ID_USER_FROM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UPDATE_SOURCE_TYPE">
+          <End Role="SOURCE_TYPE" Type="Self.SOURCE_TYPE" Multiplicity="1" />
+          <End Role="UPDATE" Type="Self.UPDATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UPDATE">
+              <PropertyRef Name="ID_SOURCE_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_SEARCH_HISTORY_USER">
+          <End Role="USER" Type="Self.USER" Multiplicity="1" />
+          <End Role="USER_SEARCH_HISTORY" Type="Self.USER_SEARCH_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_SEARCH_HISTORY">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DELIVERY_AUTOMATIC_SEARCH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GET_DETAIL_69" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_USR" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GET_DETAIL_69B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_USR" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SEARCH_DETAIL_69" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TABLA" Type="varchar" Mode="In" />
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SEARCH_DETAIL_69B" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TABLA" Type="varchar" Mode="In" />
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SEARCH_HISTORY_PERIOD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID_USR" Type="int" Mode="In" />
+          <Parameter Name="INIT_PER" Type="date" Mode="In" />
+          <Parameter Name="END_PER" Type="date" Mode="In" />
+        </Function>
+        <Function Name="SIMPLE_SEARCH_RFC_69_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="FECHA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SIMPLE_SEARCH_RFC_69B_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="FECHA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="FECHA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="FECHA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RFC" Type="varchar" Mode="In" />
+          <Parameter Name="TIPO" Type="int" Mode="In" />
+          <Parameter Name="FECHA" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="YEI3_SATModelStoreContainer">
+          <EntitySet Name="CONFIGURATION" EntityType="Self.CONFIGURATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESSAGE" EntityType="Self.MESSAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MESSAGE_DETAIL" EntityType="Self.MESSAGE_DETAIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ROL_MENU" EntityType="Self.ROL_MENU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SOURCE_TYPE" EntityType="Self.SOURCE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STATUS" EntityType="Self.STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UPDATE" EntityType="Self.UPDATE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_ROL" EntityType="Self.USER_ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER_SEARCH_HISTORY" EntityType="Self.USER_SEARCH_HISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="69" EntityType="Self.69" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [69].[NUMERO] AS [NUMERO], 
+    [69].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[69] AS [69]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="69_B" EntityType="Self.69_B" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [69_B].[NUMERO] AS [NUMERO], 
+    [69_B].[NOMBRE] AS [NOMBRE]
+    FROM [dbo].[69_B] AS [69_B]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="T69" EntityType="Self.T69" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [T69].[1] AS [1], 
+    [T69].[2] AS [2], 
+    [T69].[3] AS [3], 
+    [T69].[4] AS [4], 
+    [T69].[5] AS [5], 
+    [T69].[6] AS [6], 
+    [T69].[7] AS [7]
+    FROM [dbo].[T69] AS [T69]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__ROL_MENU__ID_MEN__30F848ED" Association="Self.FK__ROL_MENU__ID_MEN__30F848ED">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="ROL_MENU" EntitySet="ROL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROL_MENU__ID_ROL__300424B4" Association="Self.FK__ROL_MENU__ID_ROL__300424B4">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="ROL_MENU" EntitySet="ROL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER_ROL__ID_ROL__2B3F6F97" Association="Self.FK__USER_ROL__ID_ROL__2B3F6F97">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USER_ROL" EntitySet="USER_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER_ROL__ID_USE__2A4B4B5E" Association="Self.FK__USER_ROL__ID_USE__2A4B4B5E">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_ROL" EntitySet="USER_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_DETAIL_MESSAGE" Association="Self.FK_MESSAGE_DETAIL_MESSAGE">
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+            <End Role="MESSAGE_DETAIL" EntitySet="MESSAGE_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_DETAIL_USER" Association="Self.FK_MESSAGE_DETAIL_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="MESSAGE_DETAIL" EntitySet="MESSAGE_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_STATUS" Association="Self.FK_MESSAGE_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_USER" Association="Self.FK_MESSAGE_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UPDATE_SOURCE_TYPE" Association="Self.FK_UPDATE_SOURCE_TYPE">
+            <End Role="SOURCE_TYPE" EntitySet="SOURCE_TYPE" />
+            <End Role="UPDATE" EntitySet="UPDATE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_SEARCH_HISTORY_USER" Association="Self.FK_USER_SEARCH_HISTORY_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_SEARCH_HISTORY" EntitySet="USER_SEARCH_HISTORY" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YEI3_SATModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="YEI3_SATEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SEARCH_RFC_69">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEARCH_RFC_69B">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEARCH_69" ReturnType="Collection(Int32)">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_69" ReturnType="Collection(Int32)">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_69b" ReturnType="Collection(Int32)">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69_Result)">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69B" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_Result)">
+          <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEARCH_DETAIL_69" ReturnType="Collection(YEI3_SATModel.SEARCH_DETAIL_69_Result)">
+            <Parameter Name="TABLA" Mode="In" Type="String" />
+            <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEARCH_DETAIL_69B" ReturnType="Collection(YEI3_SATModel.SEARCH_DETAIL_69B_Result)">
+            <Parameter Name="TABLA" Mode="In" Type="String" />
+            <Parameter Name="RFC" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69_BY_DATE" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69_BY_DATE_Result)">
+            <Parameter Name="RFC" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="FECHA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69B_BY_DATE" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_BY_DATE_Result)">
+            <Parameter Name="RFC" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="FECHA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SEARCH_HISTORY_PERIOD" ReturnType="Collection(YEI3_SATModel.SEARCH_HISTORY_PERIOD_Result)">
+            <Parameter Name="ID_USR" Mode="In" Type="Int32" />
+            <Parameter Name="INIT_PER" Mode="In" Type="DateTime" />
+            <Parameter Name="END_PER" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_DETAIL_69" ReturnType="Collection(YEI3_SATModel.GET_DETAIL_69_Result)">
+          <Parameter Name="ID_USR" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GET_DETAIL_69B" ReturnType="Collection(YEI3_SATModel.GET_DETAIL_69B_Result)">
+          <Parameter Name="ID_USR" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DELIVERY_AUTOMATIC_SEARCH" />
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE_Result)">
+            <Parameter Name="RFC" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="FECHA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE_Result)">
+            <Parameter Name="RFC" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="FECHA" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE" ReturnType="Collection(YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE_Result)">
+            <Parameter Name="RFC" Mode="In" Type="String" />
+            <Parameter Name="TIPO" Mode="In" Type="Int32" />
+            <Parameter Name="FECHA" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="CONFIGURATION" EntityType="YEI3_SATModel.CONFIGURATION" />
+          <EntitySet Name="MENU" EntityType="YEI3_SATModel.MENU" />
+          <EntitySet Name="MESSAGE" EntityType="YEI3_SATModel.MESSAGE" />
+          <EntitySet Name="MESSAGE_DETAIL" EntityType="YEI3_SATModel.MESSAGE_DETAIL" />
+          <EntitySet Name="ROL" EntityType="YEI3_SATModel.ROL" />
+          <EntitySet Name="ROL_MENU" EntityType="YEI3_SATModel.ROL_MENU" />
+          <EntitySet Name="SOURCE_TYPE" EntityType="YEI3_SATModel.SOURCE_TYPE" />
+          <EntitySet Name="STATUS" EntityType="YEI3_SATModel.STATUS" />
+          <EntitySet Name="UPDATE" EntityType="YEI3_SATModel.UPDATE" />
+          <EntitySet Name="USER" EntityType="YEI3_SATModel.USER" />
+          <EntitySet Name="USER_ROL" EntityType="YEI3_SATModel.USER_ROL" />
+          <EntitySet Name="USER_SEARCH_HISTORY" EntityType="YEI3_SATModel.USER_SEARCH_HISTORY" />
+          <EntitySet Name="C69" EntityType="YEI3_SATModel.C69" />
+          <EntitySet Name="C69_B" EntityType="YEI3_SATModel.C69_B" />
+          <EntitySet Name="T69" EntityType="YEI3_SATModel.T69" />
+          <AssociationSet Name="FK__ROL_MENU__ID_MEN__30F848ED" Association="YEI3_SATModel.FK__ROL_MENU__ID_MEN__30F848ED">
+            <End Role="MENU" EntitySet="MENU" />
+            <End Role="ROL_MENU" EntitySet="ROL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_DETAIL_MESSAGE" Association="YEI3_SATModel.FK_MESSAGE_DETAIL_MESSAGE">
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+            <End Role="MESSAGE_DETAIL" EntitySet="MESSAGE_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_STATUS" Association="YEI3_SATModel.FK_MESSAGE_STATUS">
+            <End Role="STATUS" EntitySet="STATUS" />
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_USER" Association="YEI3_SATModel.FK_MESSAGE_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="MESSAGE" EntitySet="MESSAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MESSAGE_DETAIL_USER" Association="YEI3_SATModel.FK_MESSAGE_DETAIL_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="MESSAGE_DETAIL" EntitySet="MESSAGE_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ROL_MENU__ID_ROL__300424B4" Association="YEI3_SATModel.FK__ROL_MENU__ID_ROL__300424B4">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="ROL_MENU" EntitySet="ROL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER_ROL__ID_ROL__2B3F6F97" Association="YEI3_SATModel.FK__USER_ROL__ID_ROL__2B3F6F97">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USER_ROL" EntitySet="USER_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UPDATE_SOURCE_TYPE" Association="YEI3_SATModel.FK_UPDATE_SOURCE_TYPE">
+            <End Role="SOURCE_TYPE" EntitySet="SOURCE_TYPE" />
+            <End Role="UPDATE" EntitySet="UPDATE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__USER_ROL__ID_USE__2A4B4B5E" Association="YEI3_SATModel.FK__USER_ROL__ID_USE__2A4B4B5E">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_ROL" EntitySet="USER_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USER_SEARCH_HISTORY_USER" Association="YEI3_SATModel.FK_USER_SEARCH_HISTORY_USER">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_SEARCH_HISTORY" EntitySet="USER_SEARCH_HISTORY" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69B_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SEARCH_DETAIL_69_Result">
+          <Property Type="String" Name="RFC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TIPO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SUPUESTO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PPUBLICACION" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MONTO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="PUBLICACION" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="SEARCH_DETAIL_69B_Result">
+          <Property Type="Int32" Name="Num" Nullable="true" />
+          <Property Type="String" Name="RFC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Situacion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PubPresuncion" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SATPresuntos" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoFechaOfGlobalPresuncion" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PubDOFPresuntos" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PubDesvirtuados" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NoFechaOfGlobalDesvirtuados" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PubDOFDesvirtuados" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoFechaOfGlobalDefinitivos" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PubDefinitivos" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PubDOFDefinitivos" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoFechaOfGlobalSentenciaFav" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PubSentenciaFav" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="NoFechaOfGlobalSentenciaFav2" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PubDOFSentenciaFav" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69_BY_DATE_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69B_BY_DATE_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SEARCH_HISTORY_PERIOD_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ID_USER" Nullable="false" />
+          <Property Type="DateTime" Name="INSERT_DATE" Nullable="false" Precision="23" />
+          <Property Type="String" Name="RFC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NAME" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="C69" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="C69_B" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="TYPE_SEARCH" Nullable="true" />
+          <Property Type="DateTime" Name="SEARCH_DATE" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="C69_C" Nullable="true" />
+          <Property Type="Int32" Name="C69_BC" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GET_DETAIL_69_Result">
+          <Property Type="String" Name="C1" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="C2" Nullable="false" MaxLength="Max" />
+          <Property Type="String" Name="C3" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="C4" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="C5" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="C6" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="C7" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GET_DETAIL_69B_Result">
+          <Property Type="Int32" Name="C1" Nullable="true" />
+          <Property Type="String" Name="C2" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="C3" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="C4" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="C5" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="C6" Nullable="true" Precision="23" />
+          <Property Type="String" Name="C7" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="C8" Nullable="true" Precision="23" />
+          <Property Type="String" Name="C9" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="C10" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C11" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="C12" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="C13" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="C14" Nullable="true" Precision="23" />
+          <Property Type="String" Name="C15" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C16" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C17" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C18" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="Date69B" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Date69B" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE_Result">
+          <Property Type="Int32" Name="Registros" Nullable="true" />
+          <Property Type="String" Name="TablaQuery" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Date69B" Nullable="true" />
+          <Property Type="DateTime" Name="D69B" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="CONFIGURATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VALUE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LINK" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICON" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="POSITION" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ROL_MENU" Relationship="YEI3_SATModel.FK__ROL_MENU__ID_MEN__30F848ED" FromRole="MENU" ToRole="ROL_MENU" />
+        </EntityType>
+        <EntityType Name="MESSAGE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER_FROM" Type="Int32" />
+          <Property Name="ID_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TITLE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MESSAGE1" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ICON" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MESSAGE_DETAIL" Relationship="YEI3_SATModel.FK_MESSAGE_DETAIL_MESSAGE" FromRole="MESSAGE" ToRole="MESSAGE_DETAIL" />
+          <NavigationProperty Name="STATUS" Relationship="YEI3_SATModel.FK_MESSAGE_STATUS" FromRole="MESSAGE" ToRole="STATUS" />
+          <NavigationProperty Name="USER" Relationship="YEI3_SATModel.FK_MESSAGE_USER" FromRole="MESSAGE" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="MESSAGE_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MESSAGE" Type="Int32" Nullable="false" />
+          <Property Name="ID_USER_TO" Type="Int32" Nullable="false" />
+          <Property Name="DELIVERED" Type="Boolean" Nullable="false" />
+          <Property Name="EMAIL_NOTIFICATION" Type="Boolean" />
+          <NavigationProperty Name="MESSAGE" Relationship="YEI3_SATModel.FK_MESSAGE_DETAIL_MESSAGE" FromRole="MESSAGE_DETAIL" ToRole="MESSAGE" />
+          <NavigationProperty Name="USER" Relationship="YEI3_SATModel.FK_MESSAGE_DETAIL_USER" FromRole="MESSAGE_DETAIL" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="MAX_SEARCH" Type="Int32" />
+          <Property Name="MAX_AUT" Type="Int32" />
+          <NavigationProperty Name="ROL_MENU" Relationship="YEI3_SATModel.FK__ROL_MENU__ID_ROL__300424B4" FromRole="ROL" ToRole="ROL_MENU" />
+          <NavigationProperty Name="USER_ROL" Relationship="YEI3_SATModel.FK__USER_ROL__ID_ROL__2B3F6F97" FromRole="ROL" ToRole="USER_ROL" />
+        </EntityType>
+        <EntityType Name="ROL_MENU">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ROL" Type="Int32" Nullable="false" />
+          <Property Name="ID_MENU" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MENU" Relationship="YEI3_SATModel.FK__ROL_MENU__ID_MEN__30F848ED" FromRole="ROL_MENU" ToRole="MENU" />
+          <NavigationProperty Name="ROL" Relationship="YEI3_SATModel.FK__ROL_MENU__ID_ROL__300424B4" FromRole="ROL_MENU" ToRole="ROL" />
+        </EntityType>
+        <EntityType Name="SOURCE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UPDATE" Relationship="YEI3_SATModel.FK_UPDATE_SOURCE_TYPE" FromRole="SOURCE_TYPE" ToRole="UPDATE" />
+        </EntityType>
+        <EntityType Name="STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="MESSAGE" Relationship="YEI3_SATModel.FK_MESSAGE_STATUS" FromRole="STATUS" ToRole="MESSAGE" />
+        </EntityType>
+        <EntityType Name="UPDATE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_SOURCE_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_UPDATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RECORDS" Type="Int32" Nullable="false" />
+          <Property Name="M" Type="Int32" Nullable="false" />
+          <Property Name="F" Type="Int32" Nullable="false" />
+          <Property Name="TABLE_QUERY" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXEC_TRIGGER" Type="Boolean" Nullable="false" />
+          <Property Name="EXEC_ALERT" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SOURCE_TYPE" Relationship="YEI3_SATModel.FK_UPDATE_SOURCE_TYPE" FromRole="UPDATE" ToRole="SOURCE_TYPE" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_NAME" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PASS" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ID_STATUS" Type="Int32" Nullable="false" />
+          <Property Name="AREA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ALIAS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONAL_MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MOBILE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NNS" Type="Int32" />
+          <Property Name="CONTRACT_NUM" Type="Int32" />
+          <Property Name="STREET_TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="STREET_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EXT_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INT_NUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBURB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="LOCATION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MUNICIPALITY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STATE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INSERT_DATE" Type="DateTime" Precision="0" />
+          <Property Name="TIME_INSERT" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MESSAGE" Relationship="YEI3_SATModel.FK_MESSAGE_USER" FromRole="USER" ToRole="MESSAGE" />
+          <NavigationProperty Name="MESSAGE_DETAIL" Relationship="YEI3_SATModel.FK_MESSAGE_DETAIL_USER" FromRole="USER" ToRole="MESSAGE_DETAIL" />
+          <NavigationProperty Name="USER_ROL" Relationship="YEI3_SATModel.FK__USER_ROL__ID_USE__2A4B4B5E" FromRole="USER" ToRole="USER_ROL" />
+          <NavigationProperty Name="USER_SEARCH_HISTORY" Relationship="YEI3_SATModel.FK_USER_SEARCH_HISTORY_USER" FromRole="USER" ToRole="USER_SEARCH_HISTORY" />
+        </EntityType>
+        <EntityType Name="USER_ROL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER" Type="Int32" Nullable="false" />
+          <Property Name="ID_ROL" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ROL" Relationship="YEI3_SATModel.FK__USER_ROL__ID_ROL__2B3F6F97" FromRole="USER_ROL" ToRole="ROL" />
+          <NavigationProperty Name="USER" Relationship="YEI3_SATModel.FK__USER_ROL__ID_USE__2A4B4B5E" FromRole="USER_ROL" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="USER_SEARCH_HISTORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_USER" Type="Int32" Nullable="false" />
+          <Property Name="INSERT_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RFC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C69" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="C69_B" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TYPE_SEARCH" Type="Int32" />
+          <Property Name="SEARCH_DATE" Type="DateTime" Precision="3" />
+          <Property Name="C69_C" Type="Int32" />
+          <Property Name="C69_BC" Type="Int32" />
+          <Property Name="C69_B_DATE" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="USER" Relationship="YEI3_SATModel.FK_USER_SEARCH_HISTORY_USER" FromRole="USER_SEARCH_HISTORY" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="C69">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NUMERO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="C69_B">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NUMERO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T69">
+          <Key>
+            <PropertyRef Name="C1" />
+            <PropertyRef Name="C2" />
+            <PropertyRef Name="C3" />
+            <PropertyRef Name="C4" />
+            <PropertyRef Name="C5" />
+          </Key>
+          <Property Name="C1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="C2" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C3" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C5" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C6" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C7" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__ROL_MENU__ID_MEN__30F848ED">
+          <End Type="YEI3_SATModel.MENU" Role="MENU" Multiplicity="1" />
+          <End Type="YEI3_SATModel.ROL_MENU" Role="ROL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MENU">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_MENU">
+              <PropertyRef Name="ID_MENU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_DETAIL_MESSAGE">
+          <End Type="YEI3_SATModel.MESSAGE" Role="MESSAGE" Multiplicity="1" />
+          <End Type="YEI3_SATModel.MESSAGE_DETAIL" Role="MESSAGE_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MESSAGE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE_DETAIL">
+              <PropertyRef Name="ID_MESSAGE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_STATUS">
+          <End Type="YEI3_SATModel.STATUS" Role="STATUS" Multiplicity="1" />
+          <End Type="YEI3_SATModel.MESSAGE" Role="MESSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE">
+              <PropertyRef Name="ID_STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_USER">
+          <End Type="YEI3_SATModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="YEI3_SATModel.MESSAGE" Role="MESSAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE">
+              <PropertyRef Name="ID_USER_FROM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MESSAGE_DETAIL_USER">
+          <End Type="YEI3_SATModel.USER" Role="USER" Multiplicity="1" />
+          <End Type="YEI3_SATModel.MESSAGE_DETAIL" Role="MESSAGE_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MESSAGE_DETAIL">
+              <PropertyRef Name="ID_USER_TO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ROL_MENU__ID_ROL__300424B4">
+          <End Type="YEI3_SATModel.ROL" Role="ROL" Multiplicity="1" />
+          <End Type="YEI3_SATModel.ROL_MENU" Role="ROL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ROL_MENU">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER_ROL__ID_ROL__2B3F6F97">
+          <End Type="YEI3_SATModel.ROL" Role="ROL" Multiplicity="1" />
+          <End Type="YEI3_SATModel.USER_ROL" Role="USER_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UPDATE_SOURCE_TYPE">
+          <End Type="YEI3_SATModel.SOURCE_TYPE" Role="SOURCE_TYPE" Multiplicity="1" />
+          <End Type="YEI3_SATModel.UPDATE" Role="UPDATE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UPDATE">
+              <PropertyRef Name="ID_SOURCE_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__USER_ROL__ID_USE__2A4B4B5E">
+          <End Type="YEI3_SATModel.USER" Role="USER" Multiplicity="1" />
+          <End Type="YEI3_SATModel.USER_ROL" Role="USER_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_ROL">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USER_SEARCH_HISTORY_USER">
+          <End Type="YEI3_SATModel.USER" Role="USER" Multiplicity="1" />
+          <End Type="YEI3_SATModel.USER_SEARCH_HISTORY" Role="USER_SEARCH_HISTORY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="USER_SEARCH_HISTORY">
+              <PropertyRef Name="ID_USER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YEI3_SATModelStoreContainer" CdmEntityContainer="YEI3_SATEntities">
+          <FunctionImportMapping FunctionImportName="SEARCH_DETAIL_69" FunctionName="YEI3_SATModel.Store.SEARCH_DETAIL_69">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SEARCH_DETAIL_69_Result">
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="SUPUESTO" ColumnName="SUPUESTO" />
+                <ScalarProperty Name="PPUBLICACION" ColumnName="PPUBLICACION" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+                <ScalarProperty Name="PUBLICACION" ColumnName="PUBLICACION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SEARCH_DETAIL_69B" FunctionName="YEI3_SATModel.Store.SEARCH_DETAIL_69B">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SEARCH_DETAIL_69B_Result">
+                <ScalarProperty Name="Num" ColumnName="Num" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Situacion" ColumnName="Situacion" />
+                <ScalarProperty Name="PubPresuncion" ColumnName="PubPresuncion" />
+                <ScalarProperty Name="SATPresuntos" ColumnName="SATPresuntos" />
+                <ScalarProperty Name="NoFechaOfGlobalPresuncion" ColumnName="NoFechaOfGlobalPresuncion" />
+                <ScalarProperty Name="PubDOFPresuntos" ColumnName="PubDOFPresuntos" />
+                <ScalarProperty Name="PubDesvirtuados" ColumnName="PubDesvirtuados" />
+                <ScalarProperty Name="NoFechaOfGlobalDesvirtuados" ColumnName="NoFechaOfGlobalDesvirtuados" />
+                <ScalarProperty Name="PubDOFDesvirtuados" ColumnName="PubDOFDesvirtuados" />
+                <ScalarProperty Name="NoFechaOfGlobalDefinitivos" ColumnName="NoFechaOfGlobalDefinitivos" />
+                <ScalarProperty Name="PubDefinitivos" ColumnName="PubDefinitivos" />
+                <ScalarProperty Name="PubDOFDefinitivos" ColumnName="PubDOFDefinitivos" />
+                <ScalarProperty Name="NoFechaOfGlobalSentenciaFav" ColumnName="NoFechaOfGlobalSentenciaFav" />
+                <ScalarProperty Name="PubSentenciaFav" ColumnName="PubSentenciaFav" />
+                <ScalarProperty Name="NoFechaOfGlobalSentenciaFav2" ColumnName="NoFechaOfGlobalSentenciaFav2" />
+                <ScalarProperty Name="PubDOFSentenciaFav" ColumnName="PubDOFSentenciaFav" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SIMPLE_SEARCH_RFC_69_BY_DATE" FunctionName="YEI3_SATModel.Store.SIMPLE_SEARCH_RFC_69_BY_DATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SIMPLE_SEARCH_RFC_69_BY_DATE_Result">
+                <ScalarProperty Name="Registros" ColumnName="Registros" />
+                <ScalarProperty Name="TablaQuery" ColumnName="TablaQuery" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SIMPLE_SEARCH_RFC_69B_BY_DATE" FunctionName="YEI3_SATModel.Store.SIMPLE_SEARCH_RFC_69B_BY_DATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_BY_DATE_Result">
+                <ScalarProperty Name="Registros" ColumnName="Registros" />
+                <ScalarProperty Name="TablaQuery" ColumnName="TablaQuery" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SEARCH_HISTORY_PERIOD" FunctionName="YEI3_SATModel.Store.SEARCH_HISTORY_PERIOD">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SEARCH_HISTORY_PERIOD_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="C69" ColumnName="69" />
+                <ScalarProperty Name="C69_B" ColumnName="69_B" />
+                <ScalarProperty Name="TYPE_SEARCH" ColumnName="TYPE_SEARCH" />
+                <ScalarProperty Name="SEARCH_DATE" ColumnName="SEARCH_DATE" />
+                <ScalarProperty Name="C69_C" ColumnName="69_C" />
+                <ScalarProperty Name="C69_BC" ColumnName="69_BC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_DETAIL_69" FunctionName="YEI3_SATModel.Store.GET_DETAIL_69">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.GET_DETAIL_69_Result">
+                <ScalarProperty Name="C1" ColumnName="1" />
+                <ScalarProperty Name="C2" ColumnName="2" />
+                <ScalarProperty Name="C3" ColumnName="3" />
+                <ScalarProperty Name="C4" ColumnName="4" />
+                <ScalarProperty Name="C5" ColumnName="5" />
+                <ScalarProperty Name="C6" ColumnName="6" />
+                <ScalarProperty Name="C7" ColumnName="7" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GET_DETAIL_69B" FunctionName="YEI3_SATModel.Store.GET_DETAIL_69B">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.GET_DETAIL_69B_Result">
+                <ScalarProperty Name="C1" ColumnName="1" />
+                <ScalarProperty Name="C2" ColumnName="2" />
+                <ScalarProperty Name="C3" ColumnName="3" />
+                <ScalarProperty Name="C4" ColumnName="4" />
+                <ScalarProperty Name="C5" ColumnName="5" />
+                <ScalarProperty Name="C6" ColumnName="6" />
+                <ScalarProperty Name="C7" ColumnName="7" />
+                <ScalarProperty Name="C8" ColumnName="8" />
+                <ScalarProperty Name="C9" ColumnName="9" />
+                <ScalarProperty Name="C10" ColumnName="10" />
+                <ScalarProperty Name="C11" ColumnName="11" />
+                <ScalarProperty Name="C12" ColumnName="12" />
+                <ScalarProperty Name="C13" ColumnName="13" />
+                <ScalarProperty Name="C14" ColumnName="14" />
+                <ScalarProperty Name="C15" ColumnName="15" />
+                <ScalarProperty Name="C16" ColumnName="16" />
+                <ScalarProperty Name="C17" ColumnName="17" />
+                <ScalarProperty Name="C18" ColumnName="18" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DELIVERY_AUTOMATIC_SEARCH" FunctionName="YEI3_SATModel.Store.DELIVERY_AUTOMATIC_SEARCH" />
+          <FunctionImportMapping FunctionImportName="SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE" FunctionName="YEI3_SATModel.Store.SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DATE_BY_DATE_Result">
+                <ScalarProperty Name="Registros" ColumnName="Registros" />
+                <ScalarProperty Name="TablaQuery" ColumnName="TablaQuery" />
+                <ScalarProperty Name="Date69B" ColumnName="Date69B" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE" FunctionName="YEI3_SATModel.Store.SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DAY_BY_DATE_Result">
+                <ScalarProperty Name="Registros" ColumnName="Registros" />
+                <ScalarProperty Name="TablaQuery" ColumnName="TablaQuery" />
+                <ScalarProperty Name="Date69B" ColumnName="Date69B" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE" FunctionName="YEI3_SATModel.Store.SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="YEI3_SATModel.SIMPLE_SEARCH_RFC_69B_DAYDATE_BY_DATE_Result">
+                <ScalarProperty Name="Registros" ColumnName="Registros" />
+                <ScalarProperty Name="TablaQuery" ColumnName="TablaQuery" />
+                <ScalarProperty Name="Date69B" ColumnName="Date69B" />
+                <ScalarProperty Name="D69B" ColumnName="D69B" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="CONFIGURATION">
+            <EntityTypeMapping TypeName="YEI3_SATModel.CONFIGURATION">
+              <MappingFragment StoreEntitySet="CONFIGURATION">
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU">
+            <EntityTypeMapping TypeName="YEI3_SATModel.MENU">
+              <MappingFragment StoreEntitySet="MENU">
+                <ScalarProperty Name="POSITION" ColumnName="POSITION" />
+                <ScalarProperty Name="PARENT" ColumnName="PARENT" />
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="LINK" ColumnName="LINK" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESSAGE">
+            <EntityTypeMapping TypeName="YEI3_SATModel.MESSAGE">
+              <MappingFragment StoreEntitySet="MESSAGE">
+                <ScalarProperty Name="ICON" ColumnName="ICON" />
+                <ScalarProperty Name="MESSAGE1" ColumnName="MESSAGE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+                <ScalarProperty Name="ID_USER_FROM" ColumnName="ID_USER_FROM" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MESSAGE_DETAIL">
+            <EntityTypeMapping TypeName="YEI3_SATModel.MESSAGE_DETAIL">
+              <MappingFragment StoreEntitySet="MESSAGE_DETAIL">
+                <ScalarProperty Name="EMAIL_NOTIFICATION" ColumnName="EMAIL_NOTIFICATION" />
+                <ScalarProperty Name="DELIVERED" ColumnName="DELIVERED" />
+                <ScalarProperty Name="ID_USER_TO" ColumnName="ID_USER_TO" />
+                <ScalarProperty Name="ID_MESSAGE" ColumnName="ID_MESSAGE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="YEI3_SATModel.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="MAX_AUT" ColumnName="MAX_AUT" />
+                <ScalarProperty Name="MAX_SEARCH" ColumnName="MAX_SEARCH" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL_MENU">
+            <EntityTypeMapping TypeName="YEI3_SATModel.ROL_MENU">
+              <MappingFragment StoreEntitySet="ROL_MENU">
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SOURCE_TYPE">
+            <EntityTypeMapping TypeName="YEI3_SATModel.SOURCE_TYPE">
+              <MappingFragment StoreEntitySet="SOURCE_TYPE">
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STATUS">
+            <EntityTypeMapping TypeName="YEI3_SATModel.STATUS">
+              <MappingFragment StoreEntitySet="STATUS">
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UPDATE">
+            <EntityTypeMapping TypeName="YEI3_SATModel.UPDATE">
+              <MappingFragment StoreEntitySet="UPDATE">
+                <ScalarProperty Name="EXEC_ALERT" ColumnName="EXEC_ALERT" />
+                <ScalarProperty Name="EXEC_TRIGGER" ColumnName="EXEC_TRIGGER" />
+                <ScalarProperty Name="TABLE_QUERY" ColumnName="TABLE_QUERY" />
+                <ScalarProperty Name="F" ColumnName="F" />
+                <ScalarProperty Name="M" ColumnName="M" />
+                <ScalarProperty Name="RECORDS" ColumnName="RECORDS" />
+                <ScalarProperty Name="DATE_UPDATE" ColumnName="DATE_UPDATE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID_SOURCE_TYPE" ColumnName="ID_SOURCE_TYPE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER">
+            <EntityTypeMapping TypeName="YEI3_SATModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="TIME_INSERT" ColumnName="TIME_INSERT" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="MUNICIPALITY" ColumnName="MUNICIPALITY" />
+                <ScalarProperty Name="LOCATION" ColumnName="LOCATION" />
+                <ScalarProperty Name="SUBURB" ColumnName="SUBURB" />
+                <ScalarProperty Name="INT_NUM" ColumnName="INT_NUM" />
+                <ScalarProperty Name="EXT_NUM" ColumnName="EXT_NUM" />
+                <ScalarProperty Name="STREET_NAME" ColumnName="STREET_NAME" />
+                <ScalarProperty Name="STREET_TYPE" ColumnName="STREET_TYPE" />
+                <ScalarProperty Name="CONTRACT_NUM" ColumnName="CONTRACT_NUM" />
+                <ScalarProperty Name="NNS" ColumnName="NNS" />
+                <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+                <ScalarProperty Name="PERSONAL_MOBILE" ColumnName="PERSONAL_MOBILE" />
+                <ScalarProperty Name="ALIAS" ColumnName="ALIAS" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="AREA" ColumnName="AREA" />
+                <ScalarProperty Name="ID_STATUS" ColumnName="ID_STATUS" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_ROL">
+            <EntityTypeMapping TypeName="YEI3_SATModel.USER_ROL">
+              <MappingFragment StoreEntitySet="USER_ROL">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_SEARCH_HISTORY">
+            <EntityTypeMapping TypeName="YEI3_SATModel.USER_SEARCH_HISTORY">
+              <MappingFragment StoreEntitySet="USER_SEARCH_HISTORY">
+                <ScalarProperty Name="C69_B_DATE" ColumnName="69_B_DATE" />
+                <ScalarProperty Name="C69_BC" ColumnName="69_BC" />
+                <ScalarProperty Name="C69_C" ColumnName="69_C" />
+                <ScalarProperty Name="SEARCH_DATE" ColumnName="SEARCH_DATE" />
+                <ScalarProperty Name="TYPE_SEARCH" ColumnName="TYPE_SEARCH" />
+                <ScalarProperty Name="C69_B" ColumnName="69_B" />
+                <ScalarProperty Name="C69" ColumnName="69" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C69">
+            <EntityTypeMapping TypeName="YEI3_SATModel.C69">
+              <MappingFragment StoreEntitySet="69">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C69_B">
+            <EntityTypeMapping TypeName="YEI3_SATModel.C69_B">
+              <MappingFragment StoreEntitySet="69_B">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T69">
+            <EntityTypeMapping TypeName="YEI3_SATModel.T69">
+              <MappingFragment StoreEntitySet="T69">
+                <ScalarProperty Name="C7" ColumnName="7" />
+                <ScalarProperty Name="C6" ColumnName="6" />
+                <ScalarProperty Name="C5" ColumnName="5" />
+                <ScalarProperty Name="C4" ColumnName="4" />
+                <ScalarProperty Name="C3" ColumnName="3" />
+                <ScalarProperty Name="C2" ColumnName="2" />
+                <ScalarProperty Name="C1" ColumnName="1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

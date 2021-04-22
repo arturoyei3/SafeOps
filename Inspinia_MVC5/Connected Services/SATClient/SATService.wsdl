@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SATService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ISATService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://safeops-ws-cci.azurewebsites.net/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://safeops-ws-cci.azurewebsites.net/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://safeops-ws-cci.azurewebsites.net/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SATSR" />
+      <xsd:import schemaLocation="https://safeops-ws-cci.azurewebsites.net/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SATSR.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISATService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Forgot_InputMessage">
+    <wsdl:part name="parameters" element="tns:Forgot" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Forgot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForgotResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_EmailExists_InputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExists" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_EmailExists_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EmailExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_NewSearch_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewSearch" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_NewSearch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Search69_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search69" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Search69_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Search69Response" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Search69B_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search69B" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Search69B_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Search69BResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Detail69_InputMessage">
+    <wsdl:part name="parameters" element="tns:Detail69" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Detail69_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Detail69Response" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Detail69B_InputMessage">
+    <wsdl:part name="parameters" element="tns:Detail69B" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_Detail69B_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Detail69BResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentSearchs_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentSearchs" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentSearchs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentSearchsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_History_InputMessage">
+    <wsdl:part name="parameters" element="tns:History" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_History_OutputMessage">
+    <wsdl:part name="parameters" element="tns:HistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistory" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetTypeAccountInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetTypeAccountInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTypeAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentPeriod_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentPeriod" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentPeriod_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentPeriodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ValidateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAccount" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ValidateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ValidateEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmail" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ValidateEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetUserInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetUserInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_UpdateMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessages" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_UpdateMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetAllMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessages" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_GetAllMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentAutSearchs_InputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentAutSearchs" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_CurrentAutSearchs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CurrentAutSearchsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistoryDetail69_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistoryDetail69" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistoryDetail69_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistoryDetail69Response" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistoryDetail69B_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistoryDetail69B" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistoryDetail69B_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistoryDetail69BResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistorySimple_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistorySimple" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_ProvHistorySimple_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProvHistorySimpleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_SendEmailNotification_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailNotification" />
+  </wsdl:message>
+  <wsdl:message name="ISATService_SendEmailNotification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailNotificationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISATService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Login" message="tns:ISATService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/LoginResponse" message="tns:ISATService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Forgot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Forgot" message="tns:ISATService_Forgot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ForgotResponse" message="tns:ISATService_Forgot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Register" message="tns:ISATService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/RegisterResponse" message="tns:ISATService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/EmailExists" message="tns:ISATService_EmailExists_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/EmailExistsResponse" message="tns:ISATService_EmailExists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewSearch">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/NewSearch" message="tns:ISATService_NewSearch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/NewSearchResponse" message="tns:ISATService_NewSearch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search69">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Search69" message="tns:ISATService_Search69_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/Search69Response" message="tns:ISATService_Search69_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search69B">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Search69B" message="tns:ISATService_Search69B_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/Search69BResponse" message="tns:ISATService_Search69B_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Detail69">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Detail69" message="tns:ISATService_Detail69_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/Detail69Response" message="tns:ISATService_Detail69_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Detail69B">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/Detail69B" message="tns:ISATService_Detail69B_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/Detail69BResponse" message="tns:ISATService_Detail69B_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ChangePassword" message="tns:ISATService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ChangePasswordResponse" message="tns:ISATService_ChangePassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentSearchs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/CurrentSearchs" message="tns:ISATService_CurrentSearchs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/CurrentSearchsResponse" message="tns:ISATService_CurrentSearchs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/History" message="tns:ISATService_History_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/HistoryResponse" message="tns:ISATService_History_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ProvHistory" message="tns:ISATService_ProvHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ProvHistoryResponse" message="tns:ISATService_ProvHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/GetAccountInfo" message="tns:ISATService_GetAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/GetAccountInfoResponse" message="tns:ISATService_GetAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeAccountInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/GetTypeAccountInfo" message="tns:ISATService_GetTypeAccountInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/GetTypeAccountInfoResponse" message="tns:ISATService_GetTypeAccountInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentPeriod">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/CurrentPeriod" message="tns:ISATService_CurrentPeriod_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/CurrentPeriodResponse" message="tns:ISATService_CurrentPeriod_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ValidateAccount" message="tns:ISATService_ValidateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ValidateAccountResponse" message="tns:ISATService_ValidateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ValidateEmail" message="tns:ISATService_ValidateEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ValidateEmailResponse" message="tns:ISATService_ValidateEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/GetUserInfo" message="tns:ISATService_GetUserInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/GetUserInfoResponse" message="tns:ISATService_GetUserInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/GetMessages" message="tns:ISATService_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/GetMessagesResponse" message="tns:ISATService_GetMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/UpdateMessages" message="tns:ISATService_UpdateMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/UpdateMessagesResponse" message="tns:ISATService_UpdateMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/GetAllMessages" message="tns:ISATService_GetAllMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/GetAllMessagesResponse" message="tns:ISATService_GetAllMessages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CurrentAutSearchs">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/CurrentAutSearchs" message="tns:ISATService_CurrentAutSearchs_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/CurrentAutSearchsResponse" message="tns:ISATService_CurrentAutSearchs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ProvHistoryDetail69" message="tns:ISATService_ProvHistoryDetail69_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ProvHistoryDetail69Response" message="tns:ISATService_ProvHistoryDetail69_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69B">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ProvHistoryDetail69B" message="tns:ISATService_ProvHistoryDetail69B_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ProvHistoryDetail69BResponse" message="tns:ISATService_ProvHistoryDetail69B_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistorySimple">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/ProvHistorySimple" message="tns:ISATService_ProvHistorySimple_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/ProvHistorySimpleResponse" message="tns:ISATService_ProvHistorySimple_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailNotification">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISATService/SendEmailNotification" message="tns:ISATService_SendEmailNotification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISATService/SendEmailNotificationResponse" message="tns:ISATService_SendEmailNotification_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISATService" type="tns:ISATService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Forgot">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Forgot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <soap:operation soapAction="http://tempuri.org/ISATService/EmailExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSearch">
+      <soap:operation soapAction="http://tempuri.org/ISATService/NewSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Search69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Search69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detail69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Detail69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detail69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Detail69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentSearchs">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentSearchs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <soap:operation soapAction="http://tempuri.org/ISATService/History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistory">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetTypeAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentPeriod">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentPeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ValidateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEmail">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ValidateEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/UpdateMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetAllMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentAutSearchs">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentAutSearchs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistoryDetail69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistoryDetail69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistorySimple">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistorySimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailNotification">
+      <soap:operation soapAction="http://tempuri.org/ISATService/SendEmailNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ISATService" type="tns:ISATService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ISATService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Forgot">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Forgot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EmailExists">
+      <soap:operation soapAction="http://tempuri.org/ISATService/EmailExists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewSearch">
+      <soap:operation soapAction="http://tempuri.org/ISATService/NewSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Search69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Search69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detail69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Detail69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Detail69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/Detail69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentSearchs">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentSearchs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History">
+      <soap:operation soapAction="http://tempuri.org/ISATService/History" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistory">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTypeAccountInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetTypeAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentPeriod">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentPeriod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAccount">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ValidateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEmail">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ValidateEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/UpdateMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllMessages">
+      <soap:operation soapAction="http://tempuri.org/ISATService/GetAllMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CurrentAutSearchs">
+      <soap:operation soapAction="http://tempuri.org/ISATService/CurrentAutSearchs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistoryDetail69" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistoryDetail69B">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistoryDetail69B" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvHistorySimple">
+      <soap:operation soapAction="http://tempuri.org/ISATService/ProvHistorySimple" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailNotification">
+      <soap:operation soapAction="http://tempuri.org/ISATService/SendEmailNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SATService">
+    <wsdl:port name="BasicHttpBinding_ISATService" binding="tns:BasicHttpBinding_ISATService">
+      <soap:address location="http://safeops-ws-cci.azurewebsites.net/Service1.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ISATService" binding="tns:BasicHttpsBinding_ISATService">
+      <soap:address location="https://safeops-ws-cci.azurewebsites.net/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

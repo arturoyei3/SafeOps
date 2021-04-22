@@ -1,0 +1,620 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "SafeOps";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Yei3 | @ViewBag.Title</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- Add jQuery Style direct - used for jQGrid plugin -->
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.min.css")" rel="stylesheet" type="text/css" />
+
+    <!-- Primary Inspinia style -->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+
+</head>
+
+<body id="page-top" class="landing-page">
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top navbar-expand-md" role="navigation">
+            <div class="container">
+                <a class="navbar-brand" href="https://yei3.com" target="_blank">Yei<b>3</b> Software</a>
+                <div class="navbar-header page-scroll">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="nav-link page-scroll" href="#page-top">Home</a></li>
+                        <li><a class="nav-link page-scroll" href="#features">Funcionalidades</a></li>
+                        @*   <li><a class="nav-link page-scroll" href="#testimonials">Testimoniales</a></li>*@
+                        <li><a class="nav-link page-scroll" href="#benefits">Ventajas</a></li>
+                        <li><a class="nav-link page-scroll" href="#pricing">Precios</a></li>
+                        <li><a class="nav-link page-scroll" href="#contact">Contacto</a></li>
+                        <li><a class="nav-link page-scroll" style="color:#1ab394 !important" href="@Url.Action("Login", "Account")">Iniciar Sesión</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="inSlider" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+            <li data-target="#inSlider" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>BUSQUE A SUS PROVEEDORES</h1>
+                        <p>EN LAS LISTAS NEGRAS DEL SAT</p>
+                        <p><a class="btn btn-lg btn-primary" href="#dyt" role="button">LEER MÁS</a></p>
+                    </div>
+                    <div class="carousel-image wow zoomIn">
+                        <img src="~/Images/landing/laptop.png" alt="laptop" width="700" />
+                    </div>
+                </div>
+                <!-- Set background for slide in css -->
+                <div class="header-back one"></div>
+
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption blank">
+                        <h1>¿CONOCE LA SITUACIÓN FISCAL</h1>
+                        <p>
+                            DE SUS PROVEEDORES Y CÓMO PUEDE AFECTAR A SU EMPRESA O NEGOCIO?
+                        </p>
+                        <p><a class="btn btn-lg btn-primary" href="#reports" role="button">LEER MÁS</a></p>
+                    </div>
+                </div>
+                <!-- Set background for slide in css -->
+                <div class="header-back two"></div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#inSlider" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#inSlider" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <section id="features" class="container services">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="~/Images/landing/logo.png" alt="logo" class="img-responsive center-block" style="height: 200px" />
+                <h5>VALIDACIÓN DE PROVEEDORES EN LAS LISTAS DEL SAT</h5>
+            </div>
+
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4 text-center">
+                <a class="btn btn-block btn-primary " href="@Url.Action("Login", "Account")">Iniciar sesión</a>
+            </div>
+
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>CUMPLIMIENTO DE PROVEEDORES</h2>
+                <p>Conocer la situación fiscal de sus proveedores es una tarea muy importante para cualquier emprendedor, negocio o empresa. La autoridad fiscal puede realizar auditorías o solicitar información detallada cuando uno de sus proveedores presenta irregularidades en las operaciones o de incumplimiento en sus obligaciones y requerimientos de información, por lo que conocer el estatus de todos tus proveedores, actuales e históricos, es fundamental para evitar sorpresas desagradables. La vigencia para realizar esto es hasta de 5 años, es por ello que revisar está información de manera recurrente, al realizar la declaración informativa de operaciones con terceros como mínimo, le dará la tranquilidad de realizar operaciones seguras, o bien, la información necesaria para tomar acciones oportunas.</p>
+                <h3><span class="navy">Sólo dispones de 30 días desde el momento en que son publicadas las listas para enviar la información que soporte las operaciones realizadas con el proveedor incumplido, o puedes perder la deducibilidad de ISR y la descarga de IVA de dichas operaciones.</span></h3>
+                <!--<p><a class="navy-link" href="#features" role="button">Detalles &raquo;</a></p>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>LISTAS NEGRAS</h2>
+                <p>Las llamadas listas negras del SAT son los listados (conocidos como los listados 69 y 69b) que incluyen a aquellos contribuyentes catalogados como incumplidos por contar con adeudos firmes, exigibles, cancelados o de los que cuenten con sentencia condenatoria por delito fiscal y aquellos que se ubican en la presunción de llevar a cabo operaciones inexistentes a través de la emisión de facturas o comprobantes fiscales.</p>
+                <!--<p><a class="navy-link" href="#features" role="button">Detalles &raquo;</a></p>-->
+            </div>
+        </div>
+    </section>
+
+    <section class="container features">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Funcionalidades principales<br /> <span class="navy"> Herramienta para validación de proveedores </span> </h1>
+                <p>Automátiza y optímiza los procesos de evaluación de personal a través de una<br />  plataforma ligera, potente y fácil de utilizar en cualquier dispositivo conectado a internet. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center wow fadeInLeft">
+                <div>
+                    <i class="fa fa-exclamation-circle features-icon"></i>
+                    <h2>Listados actualizados</h2>
+                    <p>Los listados del SAT se actualizan de forma automática y periódica para asegurar que la información esté al día. Despreocúpese por buscarlos y descargarlos manualmente, SafeOps lo realiza en el momento justo de su publicación.</p>
+                </div>
+                <div class="m-t-lg">
+                    <i class="fa fa-search features-icon"></i>
+                    <h2>Búsquedas</h2>
+                    <p>Podrá realizar búsquedas simples (un contribuyente a la vez) o subiendo un archivo de Excel que contenga el listado de sus proveedores durante el mes. Pero la búsqueda más funcional es la automática, que busca todo tu historial de proveedores al publicarse una nueva versión de los listados del SAT.</p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center  wow zoomIn">
+                <img src="~/Images/landing/perspective.png" alt="dashboard" class="img-fluid">
+            </div>
+            <div class="col-md-3 text-center wow fadeInRight">
+                <div>
+                    <i class="fa fa-th features-icon"></i>
+                    <h2>Tablero de Control</h2>
+                    <p>SafeOps le informará al instante la situación de sus proveedores al iniciar sesión, ya que muestra un semáforo en tiempo real indicándole si está disponible una nueva versión de los listados, si lleva algún tiempo sin realizar la validación o cuando un proveedor aparezca en los listados del SAT.</p>
+                </div>
+                <div class="m-t-lg">
+                    <i class="fa fa-clock-o features-icon"></i>
+                    <h2>Historial</h2>
+                    <p>El sistema le ayuda a buscar en ambos listados a los proveedores que estén en su historial de búsqueda por cinco años, así solo tendrá que incluir en el archivo de búsqueda a los proveedores del periodo vigente, y SafeOps se encarga del resto.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="dyt">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Seguridad y Confianza</h1>
+                <p>Conozca con exactitud el estatus de cumplimiento de sus proveedores, y use la información a su favor para identificar acciones por realizar.</p>
+            </div>
+        </div>
+        <div class="row features-block">
+            <div class="col-lg-6 features-text wow fadeInLeft">
+                <h2>SafeOps</h2>
+                <h1>Acciones oportunas </h1>
+                <p>
+                    Al poder conocer el estatus de cumplimiento de sus proveedores mes con mes, incluyendo aquellos contribuyentes que fueron proveedores en el pasado, estará preparado por si en algún momento, alguno de ellos presenta irregularidades, evitando con ello la cancelación de las operaciones realizadas, inclusive, hasta con una antigüedad de 5 años.
+                    Tome en cuenta que varios estímulos fiscales aplicables a cada industria, como el estimulo para la región fronteriza, <span class="navy">solo son aplicables si sus proveedores no aparecen en estos listados</span>, no se exponga. No hay otra sensación igual que la tranquilidad, cuando se trata de las obligaciones por cumplir ante la autoridad fiscal.
+                </p>
+                <!--<a href="#" class="btn btn-primary">Learn more</a>-->
+            </div>
+            <div class="col-lg-6 text-right wow fadeInRight">
+                <img src="~/Images/landing/dashboard.png" alt="dashboard" class="img-responsive pull-right" />
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="reports">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Código Fiscal de la Federación</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    </br>
+                    <p>
+                        Con resultados fáciles de interpretar, podrá visualizar información importante para la toma de decisiones, ya sea que se trate de información detallada o de un vistazo rápido para tener una visión general antes de su declaración informativa de operaciones con terceros (DIOT).
+                    </p>
+                    </br>
+                </div>
+            </div>
+            <div class="row features-block" style="margin-bottom:20px">
+                <div class="col-lg-3 features-text wow fadeInLeft">
+
+                    <h2>ART. 69 </h2>
+                    <div style="max-height:300px; overflow-x:hidden; overflow-y:scroll; padding:5px">
+                        <p>
+                            El Servicio de Administración Tributaria publicará en su página de Internet el nombre, denominación o razón social y clave del registro federal de contribuyentes de aquéllos que se ubiquen en alguno de los supuestos siguientes: contar con adeudos firmes, exigibles, cancelados o de los que cuenten con sentencia condenatoria por delito fiscal.</br></br>
+                            Los contribuyentes que estuvieran inconformes con la publicación de sus datos, podrán llevar a cabo el procedimiento de aclaración que el Servicio de Administración Tributaria determine mediante reglas de carácter general, en el cual podrán aportar las pruebas que a su derecho convenga. La autoridad fiscal deberá resolver el procedimiento en un plazo de tres días, contados a partir del día siguiente al que se reciba la solicitud correspondiente y, en caso de aclararse dicha situación, el Servicio de Administración Tributaria procederá a eliminar la información publicada que corresponda.
+                        </p>
+                    </div>
+
+                    <!--<a href="#" class="btn btn-primary">Learn more</a>-->
+                </div>
+                <div class="col-lg-6 text-right m-t-n-lg wow zoomIn">
+                    <img src="~/Images/landing/iphone.png" class="img-responsive" alt="dashboard" width="600" />
+                </div>
+                <div class="col-lg-3 features-text text-right wow fadeInRight">
+
+                    <h2>ART. 69-B </h2>
+                    <div style="max-height:300px; overflow-x:hidden; overflow-y:scroll; padding:5px">
+                        <p>
+                            Cuando la autoridad fiscal detecte que un contribuyente ha estado emitiendo comprobantes sin contar con los activos, personal, infraestructura o capacidad material, directa o indirectamente, para prestar los servicios o producir, comercializar o entregar los bienes que amparan tales comprobantes, o bien, que dichos contribuyentes se encuentren no localizados, se presumirá la inexistencia de las operaciones amparadas en tales comprobantes.</br></br>
+                            En este supuesto, procederá a notificar a los contribuyentes que se encuentren en dicha situación a través de su buzón tributario, de la página de internet del Servicio de Administración Tributaria, así como mediante publicación en el Diario Oficial de la Federación, con el objeto de que aquellos contribuyentes puedan manifestar ante la autoridad fiscal lo que a su derecho convenga y aportar la documentación e información que consideren pertinentes para desvirtuar los hechos que llevaron a la autoridad a notificarlos. Para ello, los contribuyentes interesados contarán con un plazo de quince días contados a partir de la última de las notificaciones que se hayan efectuado.
+                        </p>
+                    </div>
+
+
+                    <!--<a href="#" class="btn btn-primary">Learn more</a>-->
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="testimonials" class="navy-section testimonials" style="margin-top: 0">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center wow zoomIn">
+                    <i class="fa fa-comment big-icon"></i>
+                    <h1>
+                        Nuestros clientes y SafeOps
+                    </h1>
+                    <div class="testimonials-text">
+                        <i>“No hay otra sensación igual que la tranquilidad, cuando se trata de las obligaciones por cumplir ante la autoridad fiscal.”</i>
+                    </div>
+                    <small>
+                        <strong>Rubén Arronte - Vincourt y CIA</strong>
+                    </small>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="comments gray-section" style="margin-top: 0">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>No pierdas más tiempo</h1>
+                    <p>
+                        Conozca la situación de cumplimiento fiscal de sus proveedores, no pierda más tiempo y tome las decisiones oportunamente,</br>
+                        comprobando que todas sus operaciones son seguras, cuidando lo más importante… su tranquilidad, comience ya.
+                    </p>
+                </div>
+            </div>
+            <div class="row features-block">
+                <div class="col-lg-6">
+                    <div class="bubble" style="height: 190px">
+                        “Las búsquedas en estos listados, también impacta directamente a aquellas empresas que buscan el estimulo fiscal de la región fronteriza del IVA al 8%, es un requisito que los proveedores no estén en las listas,  de forma permanente, ya que si estos incumplen en cualquier momento, se pierde el dicho estimulo.”
+                    </div>
+                    <div class="comments-avatar">
+                        <div class="media-body">
+                            <div class="commens-name">
+                                Daniel Reyes
+                            </div>
+                            <small class="text-muted">Auditor y Analista Fiscal</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="bubble" style="height: 190px">
+                        “Como el resto de las obligaciones, el control de los terceros en los listados del SAT, es una actividad muy importante para cualquier empresa, y contar con una herramienta que facilite el trabajo, no solo es ayuda para cumplimiento por sí misma, sino que además, SafeOps es tan simple de usar, que no ya no hay excusas para estar al día con esta tarea.”
+                    </div>
+                    <div class="comments-avatar">
+                        <div class="media-body">
+                            <div class="commens-name">
+                                Esteban Toppazzini
+                            </div>
+                            <small class="text-muted">Country Manager - CDA Informática</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features" id="benefits">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Ventajas</h1>
+                    <p>Estas son algunos de las ventajas y caracteristicas más importantes de la solución.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Accesible en todo momento</h2>
+                    <i class="fa fa-globe big-icon pull-right"></i>
+                    <p>Aumente la productividad del equipo de administración o contabilidad, la solución es accesible desde cualquier dispositivo con acceso a Internet en todo momento.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <h2>Búsquedas</h2>
+                    <i class="fa fa-search big-icon pull-right"></i>
+                    <p>Podrá realizar búsquedas simples (un contribuyente a la vez) o subiendo un archivo de Excel que contenga el listado de sus proveedores durante el mes, además, la búsqueda puede realizarse para históricos de listados anteriores, por si requiere validar un proveedor para un momento en específico.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Implementación en la nube</h2>
+                    <i class="fa fa-cloud big-icon pull-right"></i>
+                    <p>Con la implementación de la solución en la nube, SAFEOPS está listo para ser usado sin necesidad de instalar en ningún equipo, olvídese de la administración de servidores y de los tickets al departamento de IT, la solución es totalmente independiente.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <h2>Listado actualizados</h2>
+                    <i class="fa fa-exclamation-circle big-icon pull-right"></i>
+                    <p>Los listados del SAT se actualizan de forma automática y periódica para asegurar que la información esté al día. Despreocúpese por buscarlos y descargarlos manualmente. Además, el sistema guarda las versiones previas por si desea hacer una búsqueda a una versión anterior.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Soporte y mejoras</h2>
+                    <i class="fa fa-support big-icon pull-right"></i>
+                    <p>Contará con soporte para atender cualquier duda o fallos, además de acceder a las nuevas funcionalidades que se vayan incorporando a la solución.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <h2>Tablero de control</h2>
+                    <i class="fa fa-th big-icon pull-right"></i>
+                    <p>SafeOps le informará al instante la situación de sus proveedores al iniciar sesión, ya que muestra un semáforo en tiempo real indicándole si está disponible una nueva versión de los listados, si lleva algún tiempo sin realizar la validación o cuando un proveedor aparezca en los listados del SAT.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Historial de búsquedas</h2>
+                    <i class="fa fa-clock-o big-icon pull-right"></i>
+                    <p>El sistema le ayuda a buscar en ambos listados a los proveedores que estén en su historial de búsqueda por cinco años, así solo tendrá que incluir en el archivo de búsqueda a los proveedores del periodo vigente, y SafeOps se encarga del resto.</p>
+                </div>
+                <div class="col-lg-5 features-text">
+                    <h2>Capacitación</h2>
+                    <i class="fa fa-graduation-cap big-icon pull-right"></i>
+                    <p>Además de ser fácil e intuitivo, contamos con personal especializado para impartir sesiones de capacitación, presenciales o a distancia, que le ayudarán a sacar el máximo provecho de TALENTO SUITE.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-lg-offset-1 features-text">
+                    <h2>Exportación a MS Excel</h2>
+                    <i class="fa fa-file-excel-o big-icon pull-right"></i>
+                    <p>Exporte la información más relevante del resultado de las búsquedas a hojas de cálculo de Microsoft Excel en un solo clic.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Nuestros paquetes</h1>
+                    <p>Y lo mejor de todo, es el precio.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 wow zoomIn">
+                    <ul class="pricing-plan list-unstyled">
+                        <li class="pricing-title">
+                            Básica
+                        </li>
+                        <li class="pricing-desc">
+                            (Hasta 10 búsquedas manuales)
+                        </li>
+                        <li class="pricing-price">
+                            <span>Gratis</span>
+                        </li>
+                        <li>
+                            Tablero de control
+                        </li>
+                        <li>
+                            Búsqueda manual
+                        </li>
+                        <li>
+                            Listas negras del SAT actualizadas
+                        </li>
+                        <li>
+                            Historial de consultas
+                        </li>
+                        <li>
+                            Listado de proveedores
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Register", "Pages")" class="btn btn-primary"> Crear cuenta</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 wow zoomIn">
+                    <ul class="pricing-plan list-unstyled selected">
+                        <li class="pricing-title">
+                            Pro
+                        </li>
+                        <li class="pricing-desc">
+                           Hasta 500 búsquedas por periodo
+                        </li>
+                        <li>
+                            Tablero de control
+                        </li>
+                        <li>
+                            Búsqueda manual
+                        </li>
+                        <li>
+                            Búsqueda por archivo
+                        </li>
+                        <li>
+                            Exportación a Excel de los resultados
+                        </li>
+                        <li>
+                            Listas negras del SAT actualizadas
+                        </li>
+                        <li>
+                            Historial de consultas
+                        </li>
+                        <li>
+                            Estatus de proveedores
+                        </li>
+                        <li>
+                            Búsquedas automáticas de proveedores históricos por 5 años
+                        </li>
+                        <li>
+                            <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Comprar%20paquete%20pro" class="btn btn-primary">Comprar </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4 wow zoomIn">
+                    <ul class="pricing-plan list-unstyled">
+                        <li class="pricing-title">
+                            Premium
+                        </li>
+                        <li class="pricing-desc">
+                            Hasta 1000 búsquedas por periodo
+                        </li>
+                        <li>
+                            Tablero de control
+                        </li>
+                        <li>
+                            Búsqueda manual
+                        </li>
+                        <li>
+                            Búsqueda por archivo
+                        </li>
+                        <li>
+                            Exportación a Excel de los resultados
+                        </li>
+                        <li>
+                            Listas negras del SAT actualizadas
+                        </li>
+                        <li>
+                            Historial de consultas
+                        </li>
+                        <li>
+                            Estatus de proveedores
+                        </li>
+                        <li>
+                            Búsquedas automáticas de proveedores históricos por 5 años
+                        </li>
+                        <li>
+                            <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Comprar%20paquete%20premium" class="btn btn-primary">Comprar </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row m-t-lg">
+                <div class="col-lg-12 text-center m-t-lg">
+                    <p>* Si tienes dudas o necesitas más de 200 búsquedas por mes, <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Solicitar%20una%20cotización%20especial" class="navy-link">contáctanos</a> para revisarlo y solicitar una cotización personalizada.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="contact" class="gray-section contact">
+        <div class="container">
+            <div class="row m-b-lg">
+                <div class="col-lg-12 text-center">
+                    <div class="navy-line"></div>
+                    <h1>Contáctanos</h1>
+                    <p>Esperamos que la información presentada te haya permitido conocer nuestra solución y considerarnos como una opción viable de colaboración.</p>
+                </div>
+            </div>
+            <div class="row m-b-lg justify-content-center">
+                <div class="col-lg-3 col-lg-offset-3">
+                    <address>
+                        <strong><span class="navy">Yei3 Software</span></strong><br />
+                        Narvarte, 03020<br />
+                        Ciudad de México, México<br />
+                        Tel: +52 (55) 47 53 8478<br />
+                        E-mail: ventas@yei3.com<br />
+                        Web: yei3.com
+                    </address>
+                </div>
+                <div class="col-lg-4">
+                    <p class="text-color">
+                        Nos entusiasma la posibilidad de trabajar en equipo, alcanzar los objetivos y superar las expectativas.</br>
+                        Si tiene alguna duda o desea solicitar más detalle sobre algún servicio, contáctenos directamente o a través de su agente comercial, con gusto lo atenderemos.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Solicitar%20información" class="btn btn-primary">Envíanos un correo</a>
+                    <p class="m-t-sm">
+                        Síguenos en redes sociales
+                    </p>
+                    <ul class="list-inline social-icon">
+                        <li>
+                            <a href="https://twitter.com/yei3mx"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <!--<li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>-->
+                        <li>
+                            <a href="https://www.linkedin.com/company/yei3-software"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center m-t-lg m-b-lg">
+                    <p><strong>&copy; 2019 Yei3 Software S. de R. L. de C. V.</strong><br /> SafeOps – Validación de proveedores en las listas del SAT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/plugins/wow")
+    @Scripts.Render("~/bundles/inspinia")
+
+
+
+    <script>
+
+        $(document).ready(function () {
+
+            $('body').scrollspy({
+                target: '.navbar-fixed-top',
+                offset: 80
+            });
+
+            // Page scrolling feature
+            $('a.page-scroll').bind('click', function (event) {
+                var link = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $(link.attr('href')).offset().top - 50
+                }, 500);
+                event.preventDefault();
+                $('#navbar').collapse('hide');
+            });
+        });
+
+        var cbpAnimatedHeader = (function () {
+            var docElem = document.documentElement,
+                header = document.querySelector('.navbar-default'),
+                didScroll = false,
+                changeHeaderOn = 200;
+            function init() {
+                window.addEventListener('scroll', function (event) {
+                    if (!didScroll) {
+                        didScroll = true;
+                        setTimeout(scrollPage, 250);
+                    }
+                }, false);
+            }
+            function scrollPage() {
+                var sy = scrollY();
+                if (sy >= changeHeaderOn) {
+                    $(header).addClass('navbar-scroll')
+                }
+                else {
+                    $(header).removeClass('navbar-scroll')
+                }
+                didScroll = false;
+            }
+            function scrollY() {
+                return window.pageYOffset || docElem.scrollTop;
+            }
+            init();
+
+        })();
+
+    </script>
+
+</body>
+</html>

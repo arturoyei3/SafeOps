@@ -1,0 +1,208 @@
+﻿@{
+    ViewData["Title"] = "Importar Archivo";
+}
+@Html.Partial("_TemplateExcelSearch")
+
+<div id="importexcel" class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Importar</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>Archivo Excel</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div v-if="op.pag.list" class="row">
+        <div class="col-12">
+            <div class="alert alert-warning">
+                <i class="fa fa-file-excel-o" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                El archivo debe contener una columna llamada RFC con el listado de proveedores a buscar.
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="wrapper wrapper-content">
+                <div class="middle-box text-center animated fadeInRightBig" style="max-width:800px">
+                    <h3 class="font-bold">Seleccione un archivo excel con el listado de los contribuyentes que desea analizar:</h3>
+                    <div class="error-desc">
+                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                            <span class="btn btn-default btn-file"><span class="fileinput-new"></span><span class="fileinput-exists"></span><input type="file" id="excelfile" /></span>
+                            <span class="fileinput-filename"></span>
+                            <a href="#" class="close fileinput-exists" data-dismiss="fileinput" style="float: none">&times;</a>
+                        </div>
+                        <br /> <button class="btn btn-primary m-t" v-on:click="ExportToTable()">Procesar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div v-if="op.pag.detail" class="row y3-detail animated fadeInRight">
+
+
+
+
+        <div class="col-md-6">
+
+            <div class="alert alert-warning" v-if="searchfilter.busqueda == '1'">
+                <i class="fa fa-calendar" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                Búsqueda realizada a la <strong>última actualización.</strong>
+            </div>
+
+            <div class="alert alert-warning" v-if="searchfilter.busqueda == '2'">
+                <i class="fa fa-calendar" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                Búsqueda realizada a la fecha <strong>{{searchfilter.selecteddate}}</strong>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="alert alert-warning" v-if="excel.procesados < excel.detail.length">
+                <i class="fa fa-gear fa-spin" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                Se está procesando el listado de contribuyentes. <strong>Favor de no cerrar el navegador.</strong>
+            </div>
+            <div class="alert alert-success" v-if="excel.procesados == excel.detail.length">
+                <i class="fa fa-check" style="float:left; margin-right:5px; color:forestgreen; font-size:x-large"></i>
+                Se ha procesado el archivo correctamente.
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="alert alert-success" v-if="excel.procesados == excel.detail.length && excel.conerror == 0">
+                <i class="fa fa-check" style="float:left; margin-right:5px; color:forestgreen; font-size:x-large"></i>
+                No se contraron contribuyentes incumplidos.
+            </div>
+
+            <div class="alert alert-danger" v-if="excel.procesados == excel.detail.length && excel.conerror > 0">
+                <i class="fa fa-exclamation " style="float:left; margin-right:5px; color:red; font-size:x-large"></i>
+                Se encontraron {{excel.conerror}} contribuyentes incumplidos. Dar clic en cada ícono para conocer el detalle.
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+
+                    <h5>Detalle de búsqueda </h5>
+                    <strong>{{excel.procesados}} de {{excel.detail.length}}</strong>
+                    <div class="ibox-tools">
+                        <a title="Exportar" v-on:click="reportToCSVConvertor(excel.detail,'Excel','Resultado de búsqueda', true)">
+                            <i class="fa fa-file-excel-o" title="Exportar listado" v-on:click=""></i>
+                        </a>
+
+                        <a href="#" class="collapse-link-planning">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="row" style="font-weight:bold;">
+                            <div class="col-2">
+                            </div>
+                            <div class="col-4">
+                                RFC
+                            </div>
+                           
+                            <div class="col-3">
+                                Supuesto Operaciones Inexistentes (69)
+                            </div>
+                            <div class="col-3">
+                                Sentencia Delito Fiscal (69-B)
+                            </div>
+                        </div>
+                        <div style="max-height:200px; overflow-y:scroll; overflow-x:hidden">
+                            <yei3-row v-for="d in excel.detail"
+                                        v-bind:key="d.RFC"
+                                        v-bind:detail="d">
+                            </yei3-row>
+                        </div>
+                    </div>
+                </div>                
+            </div>                
+        </div>
+
+        <div class="col-12" style="margin:10px 0 5px 0" >
+            <div class="alert alert-dark">
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <i style="color:red; cursor:pointer" class="fa fa-exclamation-circle"></i> Se encontró al contribuyente en los archivos del SAT
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <i style="color:forestgreen;" class="fa fa-check-circle"></i> No se encontró al contribuyente en los archivos del SAT
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <i style="color:darkorange;" class="fa fa-exclamation-triangle"></i> Publicación dentro de 30 días para desvirtuar
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal inmodal" id="modalDetalle" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <div class="alert alert-warning">
+                    <i class="fa fa-copy" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                    No se consideran RFC repetidos en el archivo.
+                </div>
+                
+                <h2 class="modal-title">Archivo cargado correctamente</h2>
+                <strong><p id="seprocesaran"></p></strong>
+            </div>
+            <div class="modal-body" style="max-height:300px; overflow-y:scroll;">
+                <table id="exceltable" class="table"></table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-info" v-on:click="ProcesarNuevos()">Procesar nuevos</button>
+                <button type="button" class="btn btn-primary" v-on:click="Procesar()">Procesar todos</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ModalRFC69")
+@Html.Partial("_ModalRFC69B")
+
+@section Styles {
+    <environment names="Development,Staging,Production">
+        <link href="~/Content/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    </environment>
+}
+
+@section Scripts {
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js"></script>
+
+    <environment names="Development,Staging,Production">
+        <script src="~/Scripts/app/main.js"></script>
+        <script src="~/Scripts/plugins/datapicker/bootstrap-datepicker.js"></script>
+    </environment>
+
+    <script>
+        $(document).ready(function () {
+            var mem = $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+                format: "dd/mm/yyyy",
+                endDate: new Date(),
+            });
+        });
+    </script>
+}

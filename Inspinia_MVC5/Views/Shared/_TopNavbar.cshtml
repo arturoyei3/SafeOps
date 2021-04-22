@@ -1,0 +1,75 @@
+﻿<div class="row border-bottom">
+    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            
+        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <li style="padding:20px">
+                <span class="m-r-sm text-muted welcome-message" data-i18n="topnav.welcometext">¡Bienvenido a SafeOps!</span>
+            </li>           
+            <li class="dropdown">
+                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                    <i class="fa fa-bell"></i>  <span class="label label-primary" v-if="messages.length > 0">{{messages.length}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-alerts" v-if="messages.length > 0">
+                    <li v-for="m in messages">
+                        <a v-on:click="ShowMessageDetail(m.Id)">
+                            <div>
+                                <i v-bind:class="'fa ' + m.Icon + ' fa-fw'"></i> {{m.Title}}
+                                <span class="float-right text-muted small">{{m.InsertDate | dateFormat}}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <div class="text-center link-block">
+                            <a href="@Url.Action("Messages", "Layouts")">
+                                <strong>Ver todas</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="dropdown-menu dropdown-alerts" v-if="messages.length == 0">                    
+                    <li>
+                        <div class="text-center link-block">
+                            <a href="@Url.Action("Messages", "Layouts")">
+                                <strong>Ver todas</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="@Url.Action("logOut", "Account")">
+                    <i class="fa fa-sign-out"></i> Cerrar sesión
+                </a>
+            </li>
+           
+        </ul>
+    </nav>
+</div>
+
+
+<div class="modal inmodal" id="modalMessageDetail" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <i v-bind:class="'fa ' + message.Icon +  ' modal-icon'"></i>
+                <h4 class="modal-title">{{message.Title}}</h4>
+                <p>{{message.InsertDate | dateFormat}}</p>
+            </div>
+            <div class="modal-body">
+                <p>
+                    {{message.MessageText}}
+                </p>              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

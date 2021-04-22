@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    ViewBag.Title = "Inicio";
+}
+
+<main id="appLogin">
+
+    <div id="fullscreen_bg" class="fullscreen_bg"></div>
+
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div style="padding:10px">
+            <div>
+                @*<h1 class="logo-name">SafeOps</h1>*@
+                <img src="~/Images/logo-t.png" width="180" />
+            </div>
+            <h3>Bienvenido</h3>
+            <form id="formLogin" class="m-t" role="form" action="#">
+                <div class="form-group">
+                    <input type="email" class="form-control" v-model="send.userName" placeholder="Username" name="Username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" v-model="send.password" placeholder="Password" name="Password" required="">
+                </div>
+                <button type="button" v-on:click="login()" class="btn btn-primary block full-width m-b">Login</button>
+
+                <a href="@Url.Action("ForgotPassword", "Account")">Olvidé mi contraseña</a>
+                <p class="text-muted text-center">¿Aún sin cuenta?</p>
+                <a class="btn btn-sm btn-white btn-block" href="@Url.Action("Register", "Pages")">Crear cuenta</a>
+            </form>
+            <p class="m-t"> Yei3.com &copy; 2019 </p>
+        </div>
+    </div>
+
+
+
+</main>
+
+
+@section scripts{
+    <environment names="Development,Staging,Production">        
+        <script src="~/Scripts/app/login.js"></script>
+    </environment>
+}

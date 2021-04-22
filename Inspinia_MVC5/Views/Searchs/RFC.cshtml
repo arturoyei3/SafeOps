@@ -1,0 +1,220 @@
+﻿@{
+    /**/
+
+    ViewData["Title"] = "Búsqueda de RFC";
+}
+
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-9">
+        <h2>	Búsqueda</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>Buscar RFC</strong>
+            </li>
+        </ol>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div v-if="op.pag.list" class="row">
+        @*<div class="col-12">
+            <div class="alert alert-primary row">
+                <div class="col-6">
+                    <div class="radio">
+                        <input type="radio" name="searchtype" id="radio1" value="1" v-model="searchfilter.busqueda" checked="checked">
+                        <label for="radio1">
+                            Última versión
+                        </label>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="radio">
+                        <input type="radio" name="searchtype" id="radio2" value="2" v-model="searchfilter.busqueda">
+                        <label for="radio2">
+                            Por fecha
+                        </label>
+                    </div>
+                </div>
+
+                <div class="offset-6 col-6" v-show="searchfilter.busqueda == '2'">
+                    <div class="form-group" id="data_1">
+                        <div class="input-group date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <div class="col-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="search-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Escribir RFC..." v-model="search.send.RFC" id="txtsearch" name="search" class="form-control input-lg" style="text-transform:uppercase">
+
+
+
+                            <div class="input-group-btn">
+                                <button class="btn btn-lg btn-primary" v-on:click="toggleInputForm('searchRFC')">
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div v-if="op.pag.detail" class="row y3-detail animated fadeInRight">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Detalle de búsqueda</h5>
+                    <div class="ibox-tools">
+                        <a href="#" class="collapse-link-planning">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <div class="alert alert-warning" v-if="searchfilter.busqueda == '1'">
+                                <i class="fa fa-calendar" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                                Búsqueda realizada a la <strong>última actualización.</strong>
+                            </div>
+
+                            <div class="alert alert-warning" v-if="searchfilter.busqueda == '2'">
+                                <i class="fa fa-calendar" style="float:left; margin-right:5px; color:deepskyblue; font-size:x-large"></i>
+                                Búsqueda realizada a la fecha <strong>{{searchfilter.selecteddate}}</strong>
+                            </div>
+                        </div>
+
+                        <div class="col-12" style="margin:5px 0 10px 0">
+                            <div style="max-height:200px; overflow-y:scroll">
+                                <table class="table">
+                                    <tr style="cursor:pointer;">
+                                        <th></th>
+                                        <th>RFC</th>
+                                        <th>Supuesto Operaciones Inexistentes (69)</th>
+                                        <th>Sentencia Delito Fiscal (69-B)</th>
+                                    </tr>
+                                    <tr v-for="(c, ic) in res">
+                                        <td>{{ic + 1}}</td>
+                                        <td>{{c.RFC | mayusculas }}</td>
+                                        <td style="font-size:large">
+
+                                            @*<i v-if="c.S69 == null" class="fa fa-upload" style="color:red; cursor:pointer" title="No se encontró una actualización en la fecha seleccionada."></i>
+                                            <i v-if="c.S69 != null" class="fa fa-upload" style="cursor:pointer" v-bind:title="c.S69 "></i>*@
+
+                                            <i v-if="c.C69 > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69', c.Id, c.RFC)" class="fa fa-exclamation-circle"></i>
+                                            <i v-if="c.C69 == 0 && c.S69 != null " style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                        </td>
+                                        <td style="font-size:large">
+
+                                            @*<i v-if="c.S69B == null" class="fa fa-upload" style="color:red; cursor:pointer" title="No se encontró una actualización en la fecha seleccionada."></i>
+                                            <i v-if="c.S69B != null" class="fa fa-upload" style="cursor:pointer" v-bind:title=" c.S69B "></i>*@
+
+
+                                            <i v-if="c.Date69B <= 30" style="color:darkorange; cursor:pointer" v-bind:title="'Días para desvirtuar: '  + c.Date69B" class="fa fa-exclamation-triangle"></i>
+
+                                            <i v-if="c.T69B && c.C69B > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69B', c.Id, c.RFC)" class="fa fa-exclamation-circle"></i>
+                                            <i v-if="c.C69B == 0 && c.S69B != null" style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="alert alert-dark">
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+                                        <i style="color:red; cursor:pointer" class="fa fa-exclamation-circle"></i> Se encontró al contribuyente en los archivos del SAT
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <i style="color:forestgreen;" class="fa fa-check-circle"></i> No se encontró al contribuyente en los archivos del SAT
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-12">
+                                        <i style="color:darkorange;" class="fa fa-exclamation-triangle"></i> Publicación dentro de 30 días para desvirtuar
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="RFCNOEncontrado" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <i style="color:forestgreen;" class="fa fa-check-circle modal-icon"></i>
+                <h4 class="modal-title">Contribuyente cumplido.</h4>
+                <small class="font-bold"></small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal inmodal" id="RFCEncontrado" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <i style="color:red;" class="fa fa-exclamation-circle modal-icon"></i>
+                <h4 class="modal-title">En lista de contribuyentes incumplidos.</h4>
+                <small class="font-bold">Verifica el detalle...</small>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ModalRFC69")
+@Html.Partial("_ModalRFC69B")
+
+@section Styles {
+    <environment names="Development,Staging,Production">
+        <link href="~/Content/plugins/datapicker/datepicker3.css" rel="stylesheet" />
+    </environment>
+}
+
+@section scripts{
+    <environment names="Development,Staging,Production">
+        <script src="~/Scripts/app/main.js"></script>
+        <script src="~/Scripts/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+    </environment>
+
+    <script>
+        $(document).ready(function () {
+            var mem = $('#data_1 .input-group.date').datepicker({
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                calendarWeeks: true,
+                autoclose: true,
+                format: "dd/mm/yyyy",
+                endDate: new Date(),
+            });
+        });
+    </script>
+}
+

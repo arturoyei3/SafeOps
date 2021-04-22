@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inspinia_MVC5", "Inspinia_MVC5\Inspinia_MVC5.csproj", "{A5859E0E-3C08-4045-B8DC-B3FB13655B00}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34D2036F-34A3-424E-A87B-C95D47B59CD9} = {34D2036F-34A3-424E-A87B-C95D47B59CD9}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SATSR", "SATSR\SATSR.csproj", "{34D2036F-34A3-424E-A87B-C95D47B59CD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5859E0E-3C08-4045-B8DC-B3FB13655B00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D2036F-34A3-424E-A87B-C95D47B59CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D2036F-34A3-424E-A87B-C95D47B59CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D2036F-34A3-424E-A87B-C95D47B59CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D2036F-34A3-424E-A87B-C95D47B59CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {357F9C69-1FC3-4D1B-B019-57AC71C13177}
+	EndGlobalSection
+EndGlobal

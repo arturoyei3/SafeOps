@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<div class="wrapper wrapper-content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Estado actual</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-md-12" style="text-align:center">
+                            <h2>
+                                <i v-if="dashboard.Status == 1" style="color:limegreen; font-size:120px" class="fa fa-shield"></i>
+                                <i v-if="dashboard.Status == 2" style="color:darkorange; font-size:120px" class="fa fa-shield"></i>
+                                <i v-if="dashboard.Status >= 3" style="color:indianred; font-size:120px" class="fa fa-shield"></i>
+                            </h2>
+                            <h1><strong>{{dashboard.Title}}</strong></h1>
+                            <p>{{dashboard.Message}}</p>
+                            <p>
+                                Última búsqueda: <strong v-if="dashboard.Status == 4">NaN</strong><strong v-if="dashboard.Status != 4">{{dashboard.LastSearch | dateFormat}}</strong><br />
+                                Última actualización de las listas del SAT: <strong>{{dashboard.LastUpdate | dateFormat}}</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div v-bind:class="{'col-lg-4 ' : perfil.TypeAccount.RolId == 1 , 'col-lg-3' : perfil.TypeAccount.RolId > 1 }">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">{{perfil.TypeAccount.RolName}}</span>
+                    <h5>Cuenta</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"></h1>
+                    <div class="progress">
+                        <div v-bind:style="{width: (perfil.TypeAccount.CurrentSearchs * 100 / perfil.TypeAccount.MaxSearch) + '%' }" v-bind:aria-valuemax="perfil.TypeAccount.MaxSearch" aria-valuemin="0" v-bind:aria-valuenow="perfil.TypeAccount.CurrentSearchs" role="progressbar" class="progress-bar  progress-bar-striped bg-info">
+                            <span class="sr-only">{{(perfil.TypeAccount.CurrentSearchs * 100 / perfil.TypeAccount.MaxSearch)}} %</span>
+                        </div>
+                    </div>
+                    <br />
+                    <small>{{perfil.TypeAccount.CurrentSearchs}} de {{perfil.TypeAccount.MaxSearch}} Consultas</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3" v-if="perfil.TypeAccount.RolId > 1">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-info pull-right">{{perfil.TypeAccount.RolName}}</span>
+                    <h5>Consultas Automáticas</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"></h1>
+                    <div class="progress">
+                        <div v-bind:style="{width: (perfil.TypeAccount.CurrentAutSearchs * 100 / perfil.TypeAccount.MaxAutSearch) + '%' }" v-bind:aria-valuemax="perfil.TypeAccount.MaxAutSearch" aria-valuemin="0" v-bind:aria-valuenow="perfil.TypeAccount.CurrentAutSearchs" role="progressbar" class="progress-bar  progress-bar-striped bg-info">
+                            <span class="sr-only">{{(perfil.TypeAccount.CurrentAutSearchs * 100 / perfil.TypeAccount.MaxAutSearch)}} %</span>
+                        </div>
+                    </div>
+                    <br />
+                    <small>{{perfil.TypeAccount.CurrentAutSearchs}} de {{perfil.TypeAccount.MaxAutSearch}} Consultas</small>
+                </div>
+            </div>
+        </div>
+
+        <div v-bind:class="{'col-lg-4 ' : perfil.TypeAccount.RolId == 1 , 'col-lg-3' : perfil.TypeAccount.RolId > 1 }">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <span class="label label-success pull-right">Actual</span>
+                    <h5>Proveedores analizados</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">{{perfil.TypeAccount.CurrentProv}}</h1>
+                    <small>Total</small>
+                </div>
+            </div>
+        </div>
+        <div v-bind:class="{'col-lg-4 ' : perfil.TypeAccount.RolId == 1 , 'col-lg-3' : perfil.TypeAccount.RolId > 1 }">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Proveedores detectados</h5>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins">{{perfil.TypeAccount.CurrentFailProv}}</h1>
+                    <small>Supuestos o Sentencias</small>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+@section Styles {
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/c3/c3.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/lib/c3/c3.min.css" />
+    </environment>
+}
+
+
+@section Scripts {
+    <environment names="Development">
+        <script src="~/lib/d3/d3.js"></script>
+        <script src="~/lib/c3/c3.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/lib/d3/d3.min.js"></script>
+        <script src="~/lib/c3/c3.min.js"></script>
+    </environment>
+
+    <environment names="Development,Staging,Production">
+        <script src="~/Scripts/app/main.js"></script>
+    </environment>   
+}
+

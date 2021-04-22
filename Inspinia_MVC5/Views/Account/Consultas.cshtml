@@ -1,0 +1,379 @@
+﻿    
+@{
+    ViewBag.Title = "Consultas";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Consultas</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>Mis Consultas</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">        
+        <div class="col-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Consultas</h5>
+                    <div class="ibox-tools">
+                        <a title="Exportar" v-on:click="reportToCSVConvertorProfile('Excel','Resultado de búsqueda', true)">
+                            <i class="fa fa-file-excel-o" title="Exportar listado" v-on:click=""></i>
+                        </a>
+
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <h1 class="no-margins"></h1>
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li><a class="nav-link active" data-toggle="tab" href="#tab-1"> <i class="fa fa-star"></i>Estatus de mis proveedores</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-2"> Consultas manuales del periodo</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-3"> Consultas automáticas del periodo</a></li>
+                            <li><a class="nav-link" data-toggle="tab" href="#tab-4"> Historial de consultas</a></li>
+
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+                                    <div class="alert alert-info">
+                                        <i class="fa fa-history" style="float:left; margin-right:5px; font-size:x-large"></i>
+                                        Última consulta por proveedor.
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="text" placeholder="Buscar..." v-model="perfil.filterProv" class="form-control input-lg" style="text-transform:uppercase">
+                                        </div>
+                                        <div class="col-2">
+                                            <label> <input type="checkbox" v-model="perfil.filterSoloProv" class="i-checks"> Sólo detectados</label>
+                                        </div>
+                                    </div>
+                                    <br />
+
+                                    <div class="row" style="font-weight:bold;">
+                                        <div class="col-lg-1 d-none d-lg-block">
+                                            #
+                                        </div>
+                                        <div class="col-lg-3 col-4">
+                                            RFC
+                                        </div>
+                                        <div class="col-lg-2 d-none d-lg-block">
+                                            Fecha
+                                        </div>
+
+                                        <div class="col-lg-2 col-4">
+                                            <a title="Exportar" style="color:steelblue; font-size:16pxr;" v-on:click="reportToCSVConvertor69('Excel','Estatus proveedores 69', true)">
+                                                <i class="fa fa-file-excel-o" title="Exportar detalle (69)" v-on:click=""></i>
+                                            </a>
+
+                                            Supuesto Ope. Inexistentes (69)
+
+
+                                        </div>
+                                        <div class="col-lg-2 col-4">
+                                            <a title="Exportar" style="color:steelblue; font-size:16pxr;" v-on:click="reportToCSVConvertor69B('Excel','Estatus proveedores 69B', true)">
+                                                <i class="fa fa-file-excel-o" title="Exportar detalle (69-B)" v-on:click=""></i>
+                                            </a> Sentencia Delito Fiscal (69-B)
+
+
+                                        </div>
+                                    </div>
+                                    <div style="max-height:200px; min-height:200px; overflow-y:scroll; overflow-x:hidden; ">
+                                        <div class="row" v-for="(h, ih) in filteredProv">
+                                            <div class="col-lg-1 d-none d-lg-block">
+                                                {{ih + 1}}
+                                            </div>
+                                            <div class="col-lg-3 col-4">
+                                                {{h.RFC | mayusculas}}
+                                            </div>
+                                            <div class="col-lg-2 d-none d-lg-block">
+                                                {{h.Fecha | dateFormat}}
+                                            </div>
+
+                                            <div class="col-lg-2 col-4 " style="font-size:16px">
+
+                                                <i v-if="h.C69 > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69 == 0 && h.S69 != null " style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                            <div class="col-lg-2 col-4" style="font-size:16px">
+                                                <i v-if="h.Date69B <= 30" style="color:darkorange; cursor:pointer" v-bind:title="'Días para desvirtuar: '  + h.Date69B" class="fa fa-exclamation-triangle"></i>
+
+                                                <i v-if="h.T69B && h.C69B > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69B', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69B == 0 && h.S69B != null" style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+
+                                    <div class="alert alert-info">
+                                        <i class="fa fa-history" style="float:left; margin-right:5px; font-size:x-large"></i>
+                                        Del <strong>{{perfil.currentperiod.InitDate | dateFormat}}</strong> al <strong>{{perfil.currentperiod.EndDate | dateFormat}}</strong>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="text" placeholder="Buscar..." v-model="perfil.filterCurrentSearchs" class="form-control input-lg" style="text-transform:uppercase">
+                                        </div>
+                                        <div class="col-2">
+                                            <label> <input type="checkbox" v-model="perfil.filterSoloCurrentSearchs" class="i-checks"> Sólo detectados</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <br />
+                                    <div class="row" style="font-weight:bold;">
+                                        <div class="col-lg-1 d-none d-lg-block">
+                                            #
+                                        </div>
+                                        <div class="col-lg-3 col-4">
+                                            RFC
+                                        </div>
+                                        <div class="col-lg-2 d-none d-lg-block">
+                                            Fecha
+                                        </div>
+
+                                        <div class="col-lg-2 col-4">
+                                            Supuesto Operaciones Inexistentes (69)
+                                        </div>
+                                        <div class="col-lg-2 col-4">
+                                            Sentencia Delito Fiscal (69-B)
+                                        </div>
+                                    </div>
+
+                                    <div style="max-height:200px; min-height:200px; overflow-y:scroll; overflow-x:hidden; ">
+                                        <div class="row" v-for="(h, ih) in filteredCurrentSearchs">
+                                            <div class="col-lg-1 d-none d-lg-block">
+                                                {{ih + 1}}
+                                            </div>
+                                            <div class="col-lg-3 col-4">
+                                                {{h.RFC | mayusculas}}
+                                            </div>
+                                            <div class="col-lg-2 d-none d-lg-block">
+                                                {{h.Fecha | dateFormat}}
+                                            </div>
+
+                                            <div class="col-lg-2 col-4 " style="font-size:16px">
+                                                <i v-if="h.C69 > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69 == 0 && h.S69 != null " style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                            <div class="col-lg-2 col-4" style="font-size:16px">
+                                                <i v-if="h.Date69B <= 30" style="color:darkorange; cursor:pointer" v-bind:title="'Días para desvirtuar: '  + h.Date69B" class="fa fa-exclamation-triangle"></i>
+                                                <i v-if="h.T69B && h.C69B > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69B', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69B == 0 && h.S69B != null" style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="hidden loader-dia loader-container-history loader-container-messages">
+                                    <div class="spinner loader-body">
+                                        <div class="double-bounce1"></div>
+                                        <div class="double-bounce2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab-3" class="tab-pane">
+                                <div class="panel-body" v-if="user.rolId == 1">
+                                    <div class="alert alert-danger" v-on:click="GetPremium" style="cursor:pointer">
+                                        <i class="fa fa-start" style="float:left; margin-right:5px; font-size:x-large"></i>
+                                        Opción exclusiva de usuarios Premium. Haz clic para cambiar de plan.
+                                    </div>
+                                </div>
+
+                                <div class="panel-body" v-if="user.rolId > 1">
+
+                                    <div class="alert alert-info">
+                                        <i class="fa fa-history" style="float:left; margin-right:5px; font-size:x-large"></i>
+                                        Del <strong>{{perfil.currentperiod.InitDate | dateFormat}}</strong> al <strong>{{perfil.currentperiod.EndDate | dateFormat}}</strong>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="text" placeholder="Buscar..." v-model="perfil.filterCurrentAutSearchs" class="form-control input-lg" style="text-transform:uppercase">
+                                        </div>
+                                        <div class="col-2">
+                                            <label> <input type="checkbox" v-model="perfil.filterSoloCurrentAutSearchs" class="i-checks"> Sólo detectados</label>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <br />
+                                    <div class="row" style="font-weight:bold;">
+                                        <div class="col-lg-1 d-none d-lg-block">
+                                            #
+                                        </div>
+                                        <div class="col-lg-3 col-4">
+                                            RFC
+                                        </div>
+                                        <div class="col-lg-2 d-none d-lg-block">
+                                            Fecha
+                                        </div>
+
+                                        <div class="col-lg-2 col-4">
+                                            Supuesto Operaciones Inexistentes (69)
+                                        </div>
+                                        <div class="col-lg-2 col-4">
+                                            Sentencia Delito Fiscal (69-B)
+                                        </div>
+                                    </div>
+
+                                    <div style="max-height:200px; min-height:200px; overflow-y:scroll; overflow-x:hidden; ">
+                                        <div class="row" v-for="(h, ih) in filteredCurrentAutSearchs">
+                                            <div class="col-lg-1 d-none d-lg-block">
+                                                {{ih + 1}}
+                                            </div>
+                                            <div class="col-lg-3 col-4">
+                                                {{h.RFC | mayusculas}}
+                                            </div>
+                                            <div class="col-lg-2 d-none d-lg-block">
+                                                {{h.Fecha | dateFormat}}
+                                            </div>
+
+                                            <div class="col-lg-2 col-4 " style="font-size:16px">
+                                                <i v-if="h.C69 > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69 == 0 && h.S69 != null " style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                            <div class="col-lg-2 col-4" style="font-size:16px">
+                                                <i v-if="h.Date69B <= 30" style="color:darkorange; cursor:pointer" v-bind:title="'Días para desvirtuar: '  + h.Date69B" class="fa fa-exclamation-triangle"></i>
+                                                <i v-if="h.T69B && h.C69B > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69B', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69B == 0 && h.S69B != null" style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="hidden loader-dia loader-container-history loader-container-messages">
+                                    <div class="spinner loader-body">
+                                        <div class="double-bounce1"></div>
+                                        <div class="double-bounce2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab-4" class="tab-pane">
+                                <div class="panel-body">
+
+                                    <div class="alert alert-info">
+                                        <i class="fa fa-history" style="float:left; margin-right:5px; font-size:x-large"></i>
+                                        Total de consultas manuales o por archivo
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input type="text" placeholder="Buscar..." v-model="perfil.filterHistory" class="form-control input-lg" style="text-transform:uppercase">
+                                        </div>
+                                        <div class="col-2">
+                                            <label> <input type="checkbox" v-model="perfil.filterSoloHistory" class="i-checks"> Sólo detectados</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <br />
+
+                                    <div class="row" style="font-weight:bold;">
+                                        <div class="col-lg-1 d-none d-lg-block">
+                                            #
+                                        </div>
+                                        <div class="col-lg-3 col-4">
+                                            RFC
+                                        </div>
+                                        <div class="col-lg-2 d-none d-lg-block">
+                                            Fecha
+                                        </div>
+
+                                        <div class="col-lg-2 col-4">
+                                            Supuesto Operaciones Inexistentes (69)
+                                        </div>
+                                        <div class="col-lg-2 col-4">
+                                            Sentencia Delito Fiscal (69-B)
+                                        </div>
+                                    </div>
+                                    <div style="max-height:200px; min-height:200px; overflow-y:scroll; overflow-x:hidden; ">
+                                        <div class="row" v-for="(h, ih) in filteredHistory">
+                                            <div class="col-lg-1 d-none d-lg-block">
+                                                {{ih + 1}}
+                                            </div>
+                                            <div class="col-lg-3 col-4">
+                                                {{h.RFC | mayusculas}}
+                                            </div>
+                                            <div class="col-lg-2 d-none d-lg-block">
+                                                {{h.Fecha | dateFormat}}
+                                            </div>
+
+                                            <div class="col-lg-2 col-4 " style="font-size:16px">
+                                                <i v-if="h.C69 > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69 == 0 && h.S69 != null " style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                            <div class="col-lg-2 col-4" style="font-size:16px">
+                                                <i v-if="h.Date69B <= 30" style="color:darkorange; cursor:pointer" v-bind:title="'Días para desvirtuar: '  + h.Date69B" class="fa fa-exclamation-triangle"></i>
+                                                <i v-if="h.T69B && h.C69B > 0" style="color:red; cursor:pointer" v-on:click="toggleInputForm('detail69B', h.Id, h.RFC)" class="fa fa-exclamation-circle"></i>
+                                                <i v-if="h.C69B == 0 && h.S69B != null" style="color:forestgreen;" class="fa fa-check-circle"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="hidden loader-dia loader-container-history loader-container-messages">
+                                    <div class="spinner loader-body">
+                                        <div class="double-bounce1"></div>
+                                        <div class="double-bounce2"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div style="margin:10px 0 5px 0">
+                    <div class="alert alert-dark">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <i style="color:red; cursor:pointer" class="fa fa-exclamation-circle"></i> Se encontró al contribuyente en los archivos del SAT
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <i style="color:forestgreen;" class="fa fa-check-circle"></i> No se encontró al contribuyente en los archivos del SAT
+                            </div>
+                            <div class="col-md-4 col-sm-12">
+                                <i style="color:darkorange;" class="fa fa-exclamation-triangle"></i> Publicación dentro de 30 días para desvirtuar
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ModalRFC69")
+@Html.Partial("_ModalRFC69B")
+
+@section Scripts {
+    <environment names="Development,Staging,Production">
+        <script src="~/Scripts/app/main.js"></script>
+    </environment>
+}
+

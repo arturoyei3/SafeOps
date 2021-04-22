@@ -1,0 +1,694 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "SafeOps";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Yei3 | @ViewBag.Title</title>
+
+    @Styles.Render("~/landing/refresh/css")
+
+</head>
+<body>
+    <div class="wrapper">
+        <!--Header-->
+        <header id="header" class="header-effect-reveal" data-plugin-options="{'stickyEnabled': true, 'stickyEffect': 'reveal', 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyChangeLogo': true, 'stickyStartAt': 200, 'stickySetTop': '-52px'}">
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-logo">
+                                    <a href="/">
+                                        <img alt="Vertex" width="140" height="35" data-sticky-width="100" data-sticky-height="25" data-sticky-top="28" src="~/Images/logo-t-text.fw.png">
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="header-column justify-content-end">
+                            <div class="header-row pt-2">
+                                <nav class="header-nav-top">
+                                    <ul class="nav nav-pills">
+                                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                                            <a class="nav-link text-primary pl-0 m-list--link" href="#"><i class="icon-mail-2 fs-15 mr-1"></i> <a href="mailto:ventas@yei3.com" class="anim-link-2 anim-link-2-primary">ventas@yei3.com</a> </a>
+                                        </li>
+                                        <li class="nav-item nav-item-anim-icon d-none d-md-block">
+                                            <span class="ws-nowrap text-success m-list--link fs-15"><i class="icon-headphone"></i>  <a href="tel:+52 (55) 47 53 8478" class="text-primary anim-link-2 anim-link-2-primary">+52 (55) 47 53 8478</a></span>
+                                        </li>
+                                        <li class="nav-item nav-item-left-border nav-item-left-border-remove nav-item-left-border-md-show">
+                                            <div class="social social-brand text-center">
+                                                <a class="social-facebook m-0 transition-hover" href="https://facebook.com/yei3mx" target="_blank"><i class="fab fa-facebook"></i></a>
+                                                <a class="social-twitter m-0 transition-hover" href="https://twitter.com/yei3mx"><i class="fab fa-twitter"></i></a>
+                                                <!--<a class="social-instagram m-0 transition-hover" href="#"><i class="fab fa-instagram"></i></a>-->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="header-row">
+                                <div class="header-nav header-nav-links order-2 order-lg-1">
+                                    <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1">
+                                        <nav class="collapse">
+                                            <ul class="nav nav-pills" id="mainNav">
+                                                <li>
+                                                    <a href="#core">
+                                                        Inicio
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#sat">
+                                                        Listas SAT
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#features">
+                                                        Funcionalidades
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#prices">
+                                                        Precios
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#contact">
+                                                        Contacto
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <a href="@Url.Action("Login", "Account")" class="btn btn-primary transition-hover btn-sm ml-3">Iniciar Sesión</a>
+                                    <!--<ul class="header-social-icons social-icons d-none d-sm-block">
+                                        <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                        <li class="social-icons-linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>-->
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main nav">
+                                        <i class="fas fa-bars"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Header-->
+
+        <main class="main-content">
+            <section data-overlay="3" class="vertical-center" style="background-image:url(Content/landing/refresh/assets/img/hero/_h15.jpg); background-size:cover; min-height:700px">
+                <div class="container">
+                    <div class="row align-items-center mnt-6">
+                        <div class="col-md-6">
+                            <div class="clearfix">
+                                <h2 class="text-white fs-45">
+                                    ¿Conoces la situación fiscal de tus <strong>proveedores ante el SAT?</strong><br />
+                                    <span class="text-error" data-typing="Fraudes,Condonados,Sentencias,No localizados,Facturas Ilícitas" data-back-speed="50"></span>
+                                </h2>
+                                <p class="text-white mt-3 mb-4 fs-20">
+                                    <strong>No saberlo </strong>puede afectar tu empresa o negocio.
+                                </p>
+                                <a href="#core" class="btn btn-outline-light pl-5 pr-5">
+                                    Leer más
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oval-divider--bottom oval-divider--10"></div>
+            </section>
+
+            <section class="section pb-0" id="core">
+                <div class="container">
+                    <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+                        <img src="~/Images/logo-t-image.fw.png" width="120" />
+                        <h2>Te presentamos SafeOps <br /><span class="text-primary fs-20">Validación de contribuyentes en las listas negras del SAT</span></h2>
+                        <p><br />No importa si eres <strong>Independiente,</strong> una <strong>PyME</strong> o un <strong>Coorporativo</strong>, conoce cómo SafeOps te puede ayudar en <strong class="text-primary">asegurar tus operaciones:</strong></p>
+                        <p></p>
+                    </div>
+
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-sm-6 col-md-6 col-lg-3 mb-6 mb-lg-0">
+                            <div class="clearfix bg-white border transition-hover p-3 py-5 shadow text-aling-center">
+                                <i class="fa fa-file-excel text-primary fs-40" style="padding-left:41%"></i>
+                                <h4 class="h5 mb-3 mt-2">SAT publica un archivo de actualización</h4>
+                                <p>Listas negras con más de <strong>375,000 contribuyentes.</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 mb-6 mb-lg-0">
+                            <div class="clearfix bg-white border transition-hover p-3 py-5 shadow">
+                                <i class="fa fa-search-dollar text-primary fs-40" style="padding-left:41%"></i>
+                                <h4 class="h5 mb-3 mt-2">Verifica a tus clientes y proveedores en las listas</h4>
+                                <p>Deberás hacerlo <strong>antes de cada declaración.</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-6 col-lg-3 mb-6 mb-lg-0">
+                            <div class="clearfix bg-white border transition-hover p-3 py-5 shadow">
+                                <i class="fa fa-user-secret text-error fs-40" style="padding-left:41%"></i>
+                                <h4 class="h5 mb-3 mt-2">¿Algún contribuyente detectado?</h4>
+                                <p>Sólo cuentas con <strong class="fs-18">30 días</strong> para comprobar las operaciones, de lo contrario podrás <strong>perder la deducibilidad de ISR</strong> y la descarga de IVA de dichas operaciones.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-3 mb-6 mb-lg-0">
+                            <div class="clearfix bg-white border transition-hover p-3 py-5 shadow">
+                                <i class="fa fa-clock text-primary fs-40" style="padding-left:41%"></i>
+                                <h4 class="h5 mb-3 mt-2">Búsqueda en los listados por 5 años consecutivos</h4>
+                                <p>
+                                    Deberás seguir buscándolos aún cuando <strong>ya no tengas operaciones con ellos.</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    @*<div class="row justify-content-center">
+                    <div class="col-md-11">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="clearfix bg-light rounded p-6">
+                                    <i class="icon-dollar-currency-2 fs-55 text-primary"></i>
+                                    <p>Publicación de listas negras</p>
+                                    <h3 class="h5 mb-3 mt-2">SAT publica un archivo de actualización</h3>
+                                    <p>
+                                        Con más de <strong>375,000 proveedores</strong>
+                                    </p>
+                                </div>
+                                <div class="oval-divider--bottom oval-divider--8"></div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="clearfix bg-primary rounded p-6 pb-12">
+                                    <i class="clearfix icon-shopping-bag-3 fs-55 text-white"></i>
+                                    <p class="text-white o-8">Soporte a operaciones</p>
+                                    <h3 class="h5 mb-3 mt-2 text-white">Sólo cuentas con 30 días para desvirtuar</h3>
+                                    <p class="text-white o-8">
+                                        Puedes <strong>perder la deducibilidad de ISR</strong> y la descarga de IVA de dichas operaciones
+                                    </p>
+                                </div>
+                                <div class="oval-divider--bottom oval-divider--8"></div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                <div class="clearfix bg-light rounded p-6">
+                                    <i class="icon-window-hand fs-55 text-primary"></i>
+                                    <p>Vigencia</p>
+                                    <h3 class="h5 mb-3 mt-2">Búsqueda en los listados por 5 años consecutivos</h3>
+                                    <p>
+                                        Desde la última operación con cada proveedor
+                                    </p>
+                                </div>
+                                <div class="oval-divider--bottom oval-divider--8"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                </div>
+            </section>
+
+
+            <section class="section " id="sat">
+                <div class="container">
+                    <div class="w-md-80 w-lg-80 text-center mx-md-auto mb-9">
+                        <h2>¿Qué contienen las Listas Negras del SAT?</h2>
+                    </div>
+                    <div class="row justify-content-center pt-4">
+                        <div class="col-sm-12 col-lg-3 mb-3 mb-sm-0 border-right">
+                            <!-- Stats -->
+                            <div class="text-center">
+                                <i class="fa fa-user-secret text-primary fs-50"></i>
+                                <h2 class="display-4 text-primary" data-provide="countup" data-from="300000" data-to="375000" data-suffix="+"></h2>
+                                <p class="mb-0">Contribuyentes <br />con Supuestos fiscales</p>
+                            </div>
+                            <!-- End Stats -->
+                        </div>
+
+                        <div class="col-sm-12 col-lg-6 mb-6 mb-sm-0 border-right">
+                            <!-- Stats -->
+                            <div class="text-center">
+                                <i class="fa fa-comments-dollar text-primary fs-50"></i>
+                                <h2 class="display-4 text-primary" data-provide="countup" data-from="200" data-to="260" data-suffix="+ mil millones"></h2>
+                                <p class="mb-0">Es correcto, <strong>260 mil millones de pesos</strong><br /> en operaciones con riesgo</p>
+                            </div>
+                            <!-- End Stats -->
+                        </div>
+
+                        <div class="col-sm-12 col-lg-3 mb-3 mb-sm-0">
+                            <!-- Stats -->
+                            <div class="text-center">
+                                <i class="fa fa-gavel text-primary fs-50"></i>
+                                <h2 class="display-4 text-primary" data-provide="countup" data-from="8000" data-to="11000" data-suffix="+"></h2>
+                                <p class="mb-0">Contribuyentes <br />con Sentencias fiscales</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Stats -->
+                </div>
+            </section>
+
+            <section data-overlay="3" class="m-gab-3" data-parallax="Content/landing/header_two.jpg">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="clearfix">
+                                <h2 class="text-white font-weight-bold fs-40">
+                                    ¡SafeOps hace todo esto por tí!
+                                </h2>
+                                <p class="text-white mt-3 mb-4">
+
+                                    <span class="fs-20">Asegura tus operaciones. Conoce la situación fiscal de todos tus clientes y proveedores de forma <b class="fsx">sencilla y automática</b></span>
+                                </p>
+                                <a href="@Url.Action("Register", "Pages")" class="btn btn-outline-light">
+                                    ¡Inicia ahora, es GRATIS!
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oval-divider--top oval-divider--5"></div>
+                <div class="oval-divider--bottom oval-divider--5"></div>
+            </section>
+
+
+
+            <section class="section pb-0" id="features">
+                <div class="container">
+                    <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+                        <h2>Funcionalidades</h2>
+                        <p>Conoce todo lo que SafeOps puede hacer por tí</p>
+                    </div>
+
+                    <div class="row justify-content-lg-center">
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pr-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-kiwi-bird text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Amigable</h3>
+                                    <p class="mb-1"> Importa tu listado de clientes y proveedores y búscalos de forma rápida y sencilla.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pl-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-check-double text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Siempre al día</h3>
+                                    <p class="mb-1"> Los listados del SAT se actualizan de forma automática. Despreocúpate por buscarlos y descargarlos manualmente, SafeOps lo realiza en el momento justo de su publicación.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pr-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-robot text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Búsquedas Automáticas</h3>
+                                    <p class="mb-1"> SafeOps busca por tí de forma automática a todos tus contribuyentes en cada publicación del SAT durante 5 años. Ocúpate en lo importante, tu negocio. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pl-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-envelope-open text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Te mantenemos informado</h3>
+                                    <p class="mb-1"> Recibe notificaciones sobre nuevas publicaciones del SAT, Contribuyentes detectados y más. Siempre estaras informado de lo que sucede con tus clientes y proveedores.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pr-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-file-excel text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">SafeOps <i class="fa fa-heart"></i> Excel</h3>
+                                    <p class="mb-1"> Importa tu listado de contribuyentes y exporta todos los resultados a Excel, te va a encantar.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pl-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-traffic-light text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Tablero de control</h3>
+                                    <p class="mb-1"> Información sobre el estatus de sus clientes y proveedores en tiempo real. Analiza y toma mejores decisiones rápidamente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pr-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-cloud-moon text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">En la nube</h3>
+                                    <p class="mb-1"> Sin instalaciones y 24/7.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-5 mb-7">
+                            <div class="media pl-lg-5">
+                                <div class="w-60px mr-4">
+                                    <i class="fas fa-headset text-primary fs-45"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h3 class="h5 mt-0 mb-2">Soporte y Mejoras</h3>
+                                    <p class="mb-1"> Soporte para atender cualquier duda o fallos, además de acceder a actualizaciones y mejoras.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section data-overlay="3" class="m-gab-3" data-parallax="Content/landing/refresh/assets/img/hero/_h26.jpg">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-md-10">
+                            <div class="clearfix">
+                                <h2 class="text-white font-weight-bold fs-40">
+                                    ¿Conoces los Artículos 69 y 69B del <strong>Código Fiscal de la Federación?</strong>
+                                </h2>
+                                <p class="text-white mt-3 mb-4 fs-18">
+                                    No te preocupes, aquí te lo detallamos...
+                                </p>
+                                <a id="art69" class="btn btn-outline-light text-white">
+                                    Artículo 69
+                                </a>
+                                <a id="art69b" class="btn btn-outline-light text-white">
+                                    Artículo 69B
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oval-divider--top oval-divider--5"></div>
+                <div class="oval-divider--bottom oval-divider--5"></div>
+            </section>
+
+            <section class="section pb-0">
+                <div class="container">
+                    <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-9">
+                        <h2><i class="fa fa-hands text-primary fs-50"></i><br /><small>Lo que dicen nuestros clientes</small></h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4 pl-6 border-right">
+                            <div class="clearfix pl-8 pr-4">
+                                <div class="mb-4 testimonial-quote">
+                                    <blockquote class="fs-16 font-weight-light">
+                                        Como el resto de las obligaciones, el control de los terceros en los listados del SAT, es una actividad muy importante para cualquier empresa, y contar con una herramienta que facilite el trabajo, no solo es ayuda para cumplimiento por sí misma, sino que además, SafeOps es tan simple de usar, que no ya no hay excusas para estar al día con esta tarea.
+                                    </blockquote>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="ml-3">
+                                        <h4 class="h6 mb-0">
+                                            Esteban Toppazzini
+                                        </h4>
+                                        <small class="text-muted">
+                                            Country Manager - CDA Informática
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 border-right">
+                            <div class="clearfix pl-8 pr-4 mb-8 mb-lg-0">
+                                <div class="mb-4 testimonial-quote">
+                                    <blockquote class="fs-16 font-weight-light">
+                                        No hay otra sensación igual que la tranquilidad, cuando se trata de las obligaciones por cumplir ante la autoridad fiscal.”
+                                    </blockquote>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="ml-3">
+                                        <h4 class="h6 mb-0">Rubén Arronte </h4>
+                                        <small class="text-muted">Vincourt y CIA</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 pl-6 ">
+                            <div class="clearfix pl-8 pr-4 mb-8 mb-lg-0">
+                                <div class="mb-4 testimonial-quote">
+                                    <blockquote class="fs-16 font-weight-light">
+                                        Las búsquedas en estos listados, también impacta directamente a aquellas empresas que buscan el estimulo fiscal de la región fronteriza del IVA al 8%, es un requisito que los proveedores no estén en las listas, de forma permanente, ya que si estos incumplen en cualquier momento, se pierde el dicho estimulo.
+                                    </blockquote>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <div class="ml-3">
+                                        <h4 class="h6 mb-0">
+                                            Daniel Reyes
+                                        </h4>
+                                        <small class="text-muted">
+                                            Auditor y Analista Fiscal
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="prices">
+                <div class="container">
+                    <div class="w-md-80 w-lg-80 text-center mx-md-auto mb-9">
+                        <h2><i class="fa fa-smile text-primary fs-50"></i><br /><small>Lo mejor de todo, es el precio</small></h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pricing pricing--pema">
+                                <div class="pricing-item border-bottom border-top border-left" style="max-height:500px">
+                                    <div class="pr-6 pl-6 pb-4 pt-5 bg-light-1 border-bottom">
+                                        <h3 class="pricing-title">Básico <small></small></h3>
+                                        <div class="pricing-price text-success">
+                                            <span class="pricing-currency">$</span>
+                                            <span class="pricing-main" data-bind-radio="pricing" data-monthly="0" data-yearly="0">0</span>
+                                            <span class="pricing-period text-success">/ Gratis</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <p class="pricing-sentence">Consultas limitadas</p>
+                                        <ul class="pricing-feature-list">
+                                            <li class="m-list--link">- Hasta 10 consultas manuales</li>
+                                            <li class="m-list--link">- Tablero de control</li>
+                                            <li class="m-list--link">- Búsqueda manual</li>
+                                            <li class="m-list--link">- Listas negras del SAT actualizadas</li>
+                                            <li class="m-list--link">- Historial de consultas</li>
+                                        </ul>
+                                        <a href="@Url.Action("Register", "Pages")" class="btn btn-outline-success btn-block btn-sm border-w-2">Crear cuenta</a>
+                                    </div>
+                                </div>
+                                <div class="pricing-item border-bottom border-top border-right">
+                                    <div class="pr-6 pl-6 pb-4 pt-5 bg-light-1 border-bottom">
+                                        <h3 class="pricing-title">Pro <small> <br /> Facturado anual ($6,600) </small></h3>
+                                        <div class="pricing-price text-warning">
+                                            <span class="pricing-currency">$</span>
+                                            <span class="pricing-main" data-bind-radio="pricing" data-monthly="550" data-yearly="6600">550</span>
+                                            <span class="pricing-period text-warning">/ al Mes</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <p class="pricing-sentence">Operaciones constantes</p>
+                                        <ul class="pricing-feature-list">
+                                            <li class="m-list--link">- Hasta 100 consultas manuales</li>
+                                            <li class="m-list--link">- Hasta 500 consultas automáticas</li>
+                                            <li class="m-list--link">- Tablero de control extendido</li>
+                                            <li class="m-list--link">- Búsqueda manual</li>
+                                            <li class="m-list--link">- Búsqueda por archivo</li>
+                                            <li class="m-list--link">- Listas negras del SAT actualizadas</li>
+                                            <li class="m-list--link">- Historial de consultas</li>
+                                            <li class="m-list--link">- Estatus de proveedores</li>
+                                            <li class="m-list--link">- Búsquedas automáticas por 5 años</li>
+                                            <li class="m-list--link">- <strong>Perfil de contribuyente </strong><small><span class="m-link-muted">próximamente</span></small></li>
+                                            @*<li class="m-list--link">- <strong>Descarga de Facturas del SAT </strong><small><span class="m-link-muted">próximamente</span></small></li>*@
+                                        </ul>
+                                        <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Comprar%20paquete%20pro" class="btn btn-outline-warning btn-block btn-sm border-w-2">Comprar </a>
+                                    </div>
+                                </div>
+                                <div class="pricing-item pricing-item--featured border border-primary">
+                                    <div class="pr-6 pl-6 pb-4 pt-5 bg-light-1 border-bottom">
+                                        <h3 class="pricing-title">Premium <small> <br /> Facturado anual ($13,200)</small></h3>
+                                        <div class="pricing-price text-primary">
+                                            <span class="pricing-currency">$</span>
+                                            <span class="pricing-main" data-bind-radio="pricing" data-monthly="1,100" data-yearly="13200">1,100</span>
+                                            <span class="pricing-period text-primary">/ al Mes</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-6">
+                                        <p class="pricing-sentence">Múltiples operaciones</p>
+                                        <ul class="pricing-feature-list">
+                                            <li class="m-list--link">- Hasta 200 consultas manuales</li>
+                                            <li class="m-list--link">- Hasta 1000 consultas automáticas</li>
+                                            <li class="m-list--link">- Tablero de control extendido</li>
+                                            <li class="m-list--link">- Búsqueda manual</li>
+                                            <li class="m-list--link">- Búsqueda por archivo</li>
+                                            <li class="m-list--link">- Listas negras del SAT actualizadas</li>
+                                            <li class="m-list--link">- Historial de consultas</li>
+                                            <li class="m-list--link">- Estatus de proveedores</li>
+                                            <li class="m-list--link">- Búsquedas automáticas por 5 años</li>
+                                            <li class="m-list--link">- <strong>Perfil de contribuyente </strong><small><span class="m-link-muted">próximamente</span></small></li>
+                                            <li class="m-list--link">- <strong>Descarga de Facturas del SAT </strong><small><span class="m-link-muted">próximamente</span></small></li>
+
+
+                                        </ul>
+
+                                        <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Comprar%20paquete%20premium" class="btn btn-outline-primary btn-block btn-sm border-w-2">Comprar </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </section>
+
+            <section class="custom-section-1 m-gab-3-bottom">
+                <div class="container">
+                    <div class="row justify-content-md-center text-center">
+                        <div class="col-md-6 ">
+                            <!--<span class="label label--sm label--primary mb-2">Subscribe</span>-->
+                            <h2 class="mb-0">¿Necesitas más de 1000 consultas?</h2><br />
+                            <a href="mailto:ventas@yei3.com?subject=SafeOps%20-%20Cotizacion" class="btn btn-outline-success btn-block btn-sm border-w-2">Solicita una cotización</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="vertical-center" style="min-height:300px" id="contact">
+                <div class="container">
+                    <div class="row justify-content-md-center text-center">
+                        <div class="col-md-6">
+                            <div class="clearfix mnt-8">
+                                <p class="h4 primary-color mb-3">Contacto</p>
+                                <h2 class="mb-4">
+                                    ¡Queremos escucharte!
+                                </h2>
+                                <p class="mt-3 mb-4">
+                                    Esperamos que la información presentada te haya permitido conocer nuestra solución y considerarnos como una opción viable de colaboración.<br />
+                                    <a href="mailto:ventas@yei3.com" class="anim-link-2 anim-link-2-primary">ventas@yei3.com</a><br />
+                                    <a href="tel:+52 (55) 47 53 8478" class="text-primary anim-link-2 anim-link-2-primary">+52 (55) 47 53 8478</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oval-divider--bottom"></div>
+            </section>
+        </main>
+
+        <!--Footer-Wrap-->
+        <footer>
+            <div class="container m-gab-2">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img alt="Vertex" src="~/Images/logo-t-text.fw.png" class="mb-4" width="150">
+                        <p class="fs-18">
+                            Validación de contribuyentes <br />en las listas negras del SAT
+                        </p>
+                        <p>
+                            Yei3 Software<br />
+                            Narvarte, 03020<br />
+                            Ciudad de México, México<br />
+                        </p>
+                    </div>
+                    <div class="col-sm-3 mb-5 mb-lg-0">
+                        <h3 class="h6">
+                            <strong>Navegación</strong>
+                        </h3>
+                        <ul class="list-unstyled mb-0">
+                            <li><a class="m-list--link" href="#core">Inicio</a></li>
+                            <li><a class="m-list--link" href="#sat">Listas SAT</a></li>
+                            <li><a class="m-list--link" href="#features">Funcionalidades</a> </li>
+                            <li><a class="m-list--link" href="#prices">Precios</a> </li>
+                            <li><a class="m-list--link" href="#contact">Contacto</a> </li>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-3 mb-5 mb-lg-0">
+                        <h3 class="h6">
+                            <strong>Páginas</strong>
+                        </h3>
+                        <ul class="list-unstyled mb-0">
+                            <li><a class="m-list--link" href="@Url.Action("Login", "Account")">Iniciar Sesión</a> </li>
+                            <li><a class="m-list--link" href="@Url.Action("Privacy", "Landing")">Aviso de privacidad</a></li>
+                            <li><a class="m-list--link" href="@Url.Action("Terms", "Landing")">Términos y Condiciones</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-0 mb-1">
+            <!-- Copyright -->
+            <div class="container m-gab-1">
+                <div class="row">
+                    <div class="col-md-12 center">
+                        <ul class="list-inline mb-0 text-center">
+                            @* <li class="list-inline-item"><a class="m-list--link">© SafeOps 2019</a></li>*@
+                            <li class="list-inline-item"><a class="m-list--link" href="https://yei3.com" target="_blank">Hecho con <i class="fa fa-heart text-error"></i> por Yei3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--End Footer-Wrap-->
+    </div>
+
+    @Scripts.Render("~/landing/refresh/js")
+
+
+    <script>
+
+        $(document).ready(function () {
+            // Page scrolling feature
+
+            $('#art69').bind('click', function (event) {
+                const _wrapper = document.createElement('div');
+                _wrapper.style.textAlign = "left";
+                _wrapper.innerHTML = "El Servicio de Administración Tributaria publicará en su página de Internet el nombre, denominación o razón social y clave del registro federal de contribuyentes de aquéllos que se ubiquen en alguno de los supuestos siguientes:</br></br> contar con adeudos firmes, </br>exigibles, </br>cancelados </br>o de los que cuenten con sentencia condenatoria por delito fiscal. </br></br>Los contribuyentes que estuvieran inconformes con la publicación de sus datos, podrán llevar a cabo el procedimiento de aclaración que el Servicio de Administración Tributaria determine mediante reglas de carácter general, en el cual podrán aportar las pruebas que a su derecho convenga. </br></br>La autoridad fiscal deberá resolver el procedimiento en un plazo de tres días, contados a partir del día siguiente al que se reciba la solicitud correspondiente y, en caso de aclararse dicha situación, el Servicio de Administración Tributaria procederá a eliminar la información publicada que corresponda. ";
+
+                swal({  title:'Artículo 69', content:_wrapper});                
+            });
+
+            $('#art69b').bind('click', function (event) {
+                const _wrapper = document.createElement('div');
+                _wrapper.style.textAlign = "left";
+                _wrapper.innerHTML = "Cuando la autoridad fiscal detecte que un contribuyente ha estado emitiendo comprobantes sin contar con los activos, personal, infraestructura o capacidad material, directa o indirectamente, para prestar los servicios o producir, comercializar o entregar los bienes que amparan tales comprobantes, o bien, que dichos contribuyentes se encuentren no localizados, se presumirá la inexistencia de las operaciones amparadas en tales comprobantes.</br></br>En este supuesto, procederá a notificar a los contribuyentes que se encuentren en dicha situación a través de su buzón tributario, de la página de internet del Servicio de Administración Tributaria, así como mediante publicación en el Diario Oficial de la Federación, con el objeto de que aquellos contribuyentes puedan manifestar ante la autoridad fiscal lo que a su derecho convenga y aportar la documentación e información que consideren pertinentes para desvirtuar los hechos que llevaron a la autoridad a notificarlos. Para ello, los contribuyentes interesados contarán con un plazo de quince días contados a partir de la última de las notificaciones que se hayan efectuado.";
+
+                swal({  title:'Artículo 69B', content:_wrapper});                
+            });
+        });
+
+    </script>
+
+</body>
+</html>

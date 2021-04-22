@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SATSR" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SATSR" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="USER">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ALIAS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AREA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CONTRACT_NUM" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EXT_NUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRST_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_STATUS" type="xs:int" />
+      <xs:element minOccurs="0" name="INSERT_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="INT_NUM" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LAST_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOCATION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE" nillable="true" type="tns:ArrayOfMESSAGE" />
+      <xs:element minOccurs="0" name="MESSAGE_DETAIL" nillable="true" type="tns:ArrayOfMESSAGE_DETAIL" />
+      <xs:element minOccurs="0" name="MOBILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MUNICIPALITY" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NNS" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PASS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PERSONAL_MOBILE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PHONE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STREET_NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STREET_TYPE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBURB" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TIME_INSERT" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="USER_ROL" nillable="true" type="tns:ArrayOfUSER_ROL" />
+      <xs:element minOccurs="0" name="USER_SEARCH_HISTORY" nillable="true" type="tns:ArrayOfUSER_SEARCH_HISTORY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="USER" nillable="true" type="tns:USER" />
+  <xs:complexType name="ArrayOfMESSAGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MESSAGE" nillable="true" type="tns:MESSAGE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMESSAGE" nillable="true" type="tns:ArrayOfMESSAGE" />
+  <xs:complexType name="MESSAGE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ICON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_STATUS" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_USER_FROM" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="INSERT_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="MESSAGE1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MESSAGE_DETAIL" nillable="true" type="tns:ArrayOfMESSAGE_DETAIL" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="tns:STATUS" />
+      <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="tns:USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MESSAGE" nillable="true" type="tns:MESSAGE" />
+  <xs:complexType name="ArrayOfMESSAGE_DETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MESSAGE_DETAIL" nillable="true" type="tns:MESSAGE_DETAIL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMESSAGE_DETAIL" nillable="true" type="tns:ArrayOfMESSAGE_DETAIL" />
+  <xs:complexType name="MESSAGE_DETAIL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DELIVERED" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EMAIL_NOTIFICATION" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_MESSAGE" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_USER_TO" type="xs:int" />
+      <xs:element minOccurs="0" name="MESSAGE" nillable="true" type="tns:MESSAGE" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="tns:USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MESSAGE_DETAIL" nillable="true" type="tns:MESSAGE_DETAIL" />
+  <xs:complexType name="STATUS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MESSAGE" nillable="true" type="tns:ArrayOfMESSAGE" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="STATUS" nillable="true" type="tns:STATUS" />
+  <xs:complexType name="ArrayOfUSER_ROL">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="USER_ROL" nillable="true" type="tns:USER_ROL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUSER_ROL" nillable="true" type="tns:ArrayOfUSER_ROL" />
+  <xs:complexType name="USER_ROL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_ROL" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_USER" type="xs:int" />
+      <xs:element minOccurs="0" name="ROL" nillable="true" type="tns:ROL" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="tns:USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="USER_ROL" nillable="true" type="tns:USER_ROL" />
+  <xs:complexType name="ROL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="MAX_AUT" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MAX_SEARCH" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ROL_MENU" nillable="true" type="tns:ArrayOfROL_MENU" />
+      <xs:element minOccurs="0" name="USER_ROL" nillable="true" type="tns:ArrayOfUSER_ROL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ROL" nillable="true" type="tns:ROL" />
+  <xs:complexType name="ArrayOfROL_MENU">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ROL_MENU" nillable="true" type="tns:ROL_MENU" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfROL_MENU" nillable="true" type="tns:ArrayOfROL_MENU" />
+  <xs:complexType name="ROL_MENU">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_MENU" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_ROL" type="xs:int" />
+      <xs:element minOccurs="0" name="MENU" nillable="true" type="tns:MENU" />
+      <xs:element minOccurs="0" name="ROL" nillable="true" type="tns:ROL" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ROL_MENU" nillable="true" type="tns:ROL_MENU" />
+  <xs:complexType name="MENU">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ICON" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LINK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PARENT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="POSITION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ROL_MENU" nillable="true" type="tns:ArrayOfROL_MENU" />
+      <xs:element minOccurs="0" name="TITLE" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MENU" nillable="true" type="tns:MENU" />
+  <xs:complexType name="ArrayOfUSER_SEARCH_HISTORY">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="USER_SEARCH_HISTORY" nillable="true" type="tns:USER_SEARCH_HISTORY" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUSER_SEARCH_HISTORY" nillable="true" type="tns:ArrayOfUSER_SEARCH_HISTORY" />
+  <xs:complexType name="USER_SEARCH_HISTORY">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="C69" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C69_B" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="C69_BC" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="C69_B_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="C69_C" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_USER" type="xs:int" />
+      <xs:element minOccurs="0" name="INSERT_DATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SEARCH_DATE" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TYPE_SEARCH" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="USER" nillable="true" type="tns:USER" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="USER_SEARCH_HISTORY" nillable="true" type="tns:USER_SEARCH_HISTORY" />
+</xs:schema>

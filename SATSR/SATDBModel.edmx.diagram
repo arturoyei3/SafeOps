@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="838af6dcf809423e889421e976368c46" Name="Diagram1" ZoomLevel="34">
+        <EntityTypeShape EntityType="YEI3_SATModel.CONFIGURATION" Width="1.5" PointX="8.75" PointY="6.25" />
+        <EntityTypeShape EntityType="YEI3_SATModel.MENU" Width="1.5" PointX="3.75" PointY="20.5" />
+        <EntityTypeShape EntityType="YEI3_SATModel.MESSAGE" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="YEI3_SATModel.MESSAGE_DETAIL" Width="1.5" PointX="5.25" PointY="2.5" />
+        <EntityTypeShape EntityType="YEI3_SATModel.ROL" Width="1.5" PointX="3.75" PointY="16.5" />
+        <EntityTypeShape EntityType="YEI3_SATModel.ROL_MENU" Width="1.5" PointX="6" PointY="16.75" />
+        <EntityTypeShape EntityType="YEI3_SATModel.SOURCE_TYPE" Width="1.5" PointX="7.75" PointY="2.125" />
+        <EntityTypeShape EntityType="YEI3_SATModel.STATUS" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="YEI3_SATModel.UPDATE" Width="1.5" PointX="10" PointY="1.375" />
+        <EntityTypeShape EntityType="YEI3_SATModel.USER" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="YEI3_SATModel.USER_ROL" Width="1.5" PointX="6" PointY="5.75" />
+        <EntityTypeShape EntityType="YEI3_SATModel.USER_SEARCH_HISTORY" Width="1.5" PointX="3" PointY="11.375" />
+        <EntityTypeShape EntityType="YEI3_SATModel.C69" Width="1.5" PointX="2.75" PointY="9.25" />
+        <EntityTypeShape EntityType="YEI3_SATModel.C69_B" Width="1.5" PointX="4.75" PointY="9.25" />
+        <EntityTypeShape EntityType="YEI3_SATModel.T69" Width="1.5" PointX="6.75" PointY="9.25" />
+        <AssociationConnector Association="YEI3_SATModel.FK__ROL_MENU__ID_MEN__30F848ED" />
+        <AssociationConnector Association="YEI3_SATModel.FK_MESSAGE_DETAIL_MESSAGE" />
+        <AssociationConnector Association="YEI3_SATModel.FK_MESSAGE_STATUS" />
+        <AssociationConnector Association="YEI3_SATModel.FK_MESSAGE_USER" />
+        <AssociationConnector Association="YEI3_SATModel.FK_MESSAGE_DETAIL_USER" />
+        <AssociationConnector Association="YEI3_SATModel.FK__ROL_MENU__ID_ROL__300424B4" />
+        <AssociationConnector Association="YEI3_SATModel.FK__USER_ROL__ID_ROL__2B3F6F97" />
+        <AssociationConnector Association="YEI3_SATModel.FK_UPDATE_SOURCE_TYPE" />
+        <AssociationConnector Association="YEI3_SATModel.FK__USER_ROL__ID_USE__2A4B4B5E" />
+        <AssociationConnector Association="YEI3_SATModel.FK_USER_SEARCH_HISTORY_USER" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

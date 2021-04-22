@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Mensajes";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Mi Perfil</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="@Url.Action("Dashboard_1", "Dashboards")">Home</a>
+            </li>
+            <li class="active breadcrumb-item">
+                <strong>Centro de Mensajes</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+        
+        <div class="col-md-12">
+
+            <div class="ibox ">
+                <div class="ibox-title">                   
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>                       
+                    </div>
+                </div>
+                <div class="ibox-content ibox-heading">
+                    <h3><i class="fa fa-envelope-o"></i> Mensajes</h3>                   
+                </div>
+                <div class="ibox-content">
+                    <div class="feed-activity-list" style="max-height:400px; overflow-x:hidden; overflow-y:scroll">
+                        <div class="feed-element" v-for="m in allmessages" >
+                            <div>
+                                <strong class="float-right text-navy" style="margin-right:10px">{{m.InsertDate | dateFormat}}</strong>
+                                <i v-bind:class="'fa ' + m.Icon + ' fa-fw'"></i><strong>{{m.Title}}</strong>
+                                <div>{{m.MessageText}}</div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_ModalRFC69")
+@Html.Partial("_ModalRFC69B")
+
+@section Scripts {
+    <environment names="Development,Staging,Production">
+        <script src="~/Scripts/app/main.js"></script>
+    </environment>
+}
+
